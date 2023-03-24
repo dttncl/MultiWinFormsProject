@@ -19,9 +19,11 @@ namespace WinFormProject
 
         }
 
+        public List<double> listNumbers = new List<double>();
+        
         private void frmCalculator_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         // initiate the constructor
@@ -93,152 +95,316 @@ namespace WinFormProject
             numBuilder += ".";
             txtCalc.Text = numBuilder;
         }
-        
-        public List<double> listNumbers = new List<double>();
+
         private bool btnAddClicked = false;
         private bool btnSubClicked = false;
         private bool btnMulClicked = false;
         private bool btnDivClicked = false;
+        private bool btnEqualClicked = false;
+        double res;
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
-            try
+            if (!btnEqualClicked)
             {
-                // when clicked, push the current numBuilder into the list (index 0)
-                listNumbers.Add(Convert.ToDouble(numBuilder));
-
-                // reset numBuilder to allow input of next number and clear the textbox
+                double num = Convert.ToDouble(numBuilder);
+                listNumbers.Add(num);
                 numBuilder = "";
-                txtCalc.Clear();
 
-                // set to true
-                btnAddClicked = true;
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show($"Error! {err.Message}\n" +
-                    $"Please enter a number", "Exception Error");
+                if (btnSubClicked)
+                {
+                    calculate.Num1 = listNumbers[0];
+                    calculate.Num2 = listNumbers[1];
+                    res = calculate.Sub();
+                    txtCalc.Text = res.ToString();
 
+                    listNumbers.Clear();
+                    listNumbers.Add(res);
+                    btnSubClicked = false;
+                    btnEqualClicked = false;
+                }
+                else if (btnMulClicked)
+                {
+                    calculate.Num1 = listNumbers[0];
+                    calculate.Num2 = listNumbers[1];
+                    res = calculate.Mul();
+                    txtCalc.Text = res.ToString();
+
+                    listNumbers.Clear();
+                    listNumbers.Add(res);
+                    btnMulClicked = false;
+                    btnEqualClicked = false;
+                }
+                else if (btnDivClicked)
+                {
+                    calculate.Num1 = listNumbers[0];
+                    calculate.Num2 = listNumbers[1];
+                    res = calculate.Div();
+                    txtCalc.Text = res.ToString();
+
+                    listNumbers.Clear();
+                    listNumbers.Add(res);
+                    btnDivClicked = false;
+                    btnEqualClicked = false;
+                }
+                else if (btnAddClicked)
+                {
+                    calculate.Num1 = listNumbers[0];
+                    calculate.Num2 = listNumbers[1];
+                    res = calculate.Add();
+                    txtCalc.Text = res.ToString();
+
+                    listNumbers.Clear();
+                    listNumbers.Add(res);
+                    btnAddClicked = false;
+                    btnEqualClicked = false;
+                }
             }
+
+            btnAddClicked = true;
         }
 
         private void btnSub_Click(object sender, EventArgs e)
         {
-            // when clicked, push the current numBuilder into the list (index 0)
-            listNumbers.Add(Convert.ToDouble(numBuilder));
 
-            // reset numBuilder to allow input of next number and clear the textbox
-            numBuilder = "";
-            txtCalc.Clear();
+            if (!btnEqualClicked)
+            {
+                double num = Convert.ToDouble(numBuilder);
+                listNumbers.Add(num);
+                numBuilder = "";
 
-            // set to true
+                if (btnSubClicked)
+                {
+                    calculate.Num1 = listNumbers[0];
+                    calculate.Num2 = listNumbers[1];
+                    res = calculate.Sub();
+                    txtCalc.Text = res.ToString();
+
+                    listNumbers.Clear();
+                    listNumbers.Add(res);
+                    btnSubClicked = false;
+                    btnEqualClicked = false;
+                }
+                else if (btnMulClicked)
+                {
+                    calculate.Num1 = listNumbers[0];
+                    calculate.Num2 = listNumbers[1];
+                    res = calculate.Mul();
+                    txtCalc.Text = res.ToString();
+
+                    listNumbers.Clear();
+                    listNumbers.Add(res);
+                    btnMulClicked = false;
+                    btnEqualClicked = false;
+                }
+                else if (btnDivClicked)
+                {
+                    calculate.Num1 = listNumbers[0];
+                    calculate.Num2 = listNumbers[1];
+                    res = calculate.Div();
+                    txtCalc.Text = res.ToString();
+
+                    listNumbers.Clear();
+                    listNumbers.Add(res);
+                    btnDivClicked = false;
+                    btnEqualClicked = false;
+                }
+                else if (btnAddClicked)
+                {
+                    calculate.Num1 = listNumbers[0];
+                    calculate.Num2 = listNumbers[1];
+                    res = calculate.Add();
+                    txtCalc.Text = res.ToString();
+
+                    listNumbers.Clear();
+                    listNumbers.Add(res);
+                    btnAddClicked = false;
+                    btnEqualClicked = false;
+                }
+            }
+            
             btnSubClicked = true;
         }
 
         private void btnMul_Click(object sender, EventArgs e)
         {
-            // when clicked, push the current numBuilder into the list (index 0)
-            listNumbers.Add(Convert.ToDouble(numBuilder));
+            if (!btnEqualClicked)
+            {
 
-            // reset numBuilder to allow input of next number and clear the textbox
-            numBuilder = "";
-            txtCalc.Clear();
+                double num = Convert.ToDouble(numBuilder);
+                listNumbers.Add(num);
+                numBuilder = "";
 
-            // set to true
+                if (btnSubClicked)
+                {
+                    calculate.Num1 = listNumbers[0];
+                    calculate.Num2 = listNumbers[1];
+                    res = calculate.Sub();
+                    txtCalc.Text = res.ToString();
+
+                    listNumbers.Clear();
+                    listNumbers.Add(res);
+                    btnSubClicked = false;
+                    btnEqualClicked = false;
+                }
+                else if (btnMulClicked)
+                {
+                    calculate.Num1 = listNumbers[0];
+                    calculate.Num2 = listNumbers[1];
+                    res = calculate.Mul();
+                    txtCalc.Text = res.ToString();
+
+                    listNumbers.Clear();
+                    listNumbers.Add(res);
+                    btnMulClicked = false;
+                    btnEqualClicked = false;
+                }
+                else if (btnDivClicked)
+                {
+                    calculate.Num1 = listNumbers[0];
+                    calculate.Num2 = listNumbers[1];
+                    res = calculate.Div();
+                    txtCalc.Text = res.ToString();
+
+                    listNumbers.Clear();
+                    listNumbers.Add(res);
+                    btnDivClicked = false;
+                    btnEqualClicked = false;
+                }
+                else if (btnAddClicked)
+                {
+                    calculate.Num1 = listNumbers[0];
+                    calculate.Num2 = listNumbers[1];
+                    res = calculate.Add();
+                    txtCalc.Text = res.ToString();
+
+                    listNumbers.Clear();
+                    listNumbers.Add(res);
+                    btnAddClicked = false;
+                    btnEqualClicked = false;
+                }
+            }
+
             btnMulClicked = true;
         }
 
         private void btnDiv_Click(object sender, EventArgs e)
         {
-            // when clicked, push the current numBuilder into the list (index 0)
-            listNumbers.Add(Convert.ToDouble(numBuilder));
+            if (!btnEqualClicked) 
+            {
+                double num = Convert.ToDouble(numBuilder);
+                listNumbers.Add(num);
+                numBuilder = "";
 
-            // reset numBuilder to allow input of next number and clear the textbox
-            numBuilder = "";
-            txtCalc.Clear();
+                if (btnSubClicked)
+                {
+                    calculate.Num1 = listNumbers[0];
+                    calculate.Num2 = listNumbers[1];
+                    res = calculate.Sub();
+                    txtCalc.Text = res.ToString();
 
-            // set to true
+                    listNumbers.Clear();
+                    listNumbers.Add(res);
+                    btnSubClicked = false;
+                    btnEqualClicked = false;
+                }
+                else if (btnMulClicked)
+                {
+                    calculate.Num1 = listNumbers[0];
+                    calculate.Num2 = listNumbers[1];
+                    res = calculate.Mul();
+                    txtCalc.Text = res.ToString();
+
+                    listNumbers.Clear();
+                    listNumbers.Add(res);
+                    btnMulClicked = false;
+                    btnEqualClicked = false;
+                }
+                else if (btnDivClicked)
+                {
+                    calculate.Num1 = listNumbers[0];
+                    calculate.Num2 = listNumbers[1];
+                    res = calculate.Div();
+                    txtCalc.Text = res.ToString();
+
+                    listNumbers.Clear();
+                    listNumbers.Add(res);
+                    btnDivClicked = false;
+                    btnEqualClicked = false;
+                }
+                else if (btnAddClicked)
+                {
+                    calculate.Num1 = listNumbers[0];
+                    calculate.Num2 = listNumbers[1];
+                    res = calculate.Add();
+                    txtCalc.Text = res.ToString();
+
+                    listNumbers.Clear();
+                    listNumbers.Add(res);
+                    btnAddClicked = false;
+                    btnEqualClicked = false;
+                }
+            }
+           
             btnDivClicked = true;
         }
 
         private void btnEqual_Click(object sender, EventArgs e)
         {
-            // when clicked, push the second numBuilder into the list (index 1)
-            listNumbers.Add(Convert.ToDouble(numBuilder));
-
-            // pass the first and second number in the list as Num1 and Num2
-            calculate.Num1 = listNumbers[0];
-            calculate.Num2 = listNumbers[1];
-
+            double num = Convert.ToDouble(numBuilder);
+            listNumbers.Add(num);
             numBuilder = "";
-            double res = 0;
-            byte flag = 0;
 
-            // calculate depending on which operation was clicked
-            if (btnAddClicked)
+            if (btnSubClicked)
             {
-                res = calculate.Add();
-                btnAddClicked = false;
-
-                // reset numBuilder to allow input of next number
-                listNumbers.Clear();
-            }
-            else if (btnSubClicked)
-            {
+                calculate.Num1 = listNumbers[0];
+                calculate.Num2 = listNumbers[1];
                 res = calculate.Sub();
-                btnSubClicked = false;
+                txtCalc.Text = res.ToString();
+
                 listNumbers.Clear();
+                listNumbers.Add(res);
+                btnSubClicked = false;
+                btnEqualClicked = false;
             }
             else if (btnMulClicked)
             {
+                calculate.Num1 = listNumbers[0];
+                calculate.Num2 = listNumbers[1];
                 res = calculate.Mul();
-                btnMulClicked = false;
+                txtCalc.Text = res.ToString();
+
                 listNumbers.Clear();
+                listNumbers.Add(res);
+                btnMulClicked = false;
+                btnEqualClicked = false;
             }
             else if (btnDivClicked)
             {
-                // handle division by 0
-                if (listNumbers[1] == 0)
-                {
-                    MessageBox.Show("Undefined! Attempted to divide by zero.","Error");
-                    flag = 1;
-
-                } else
-                {
-                    res = calculate.Div();
-                }
-
-                btnDivClicked = false;
-                listNumbers.Clear();
-            }
-
-            // handle division by 0
-            if (flag == 1)
-            {
-                txtCalc.Text = "";
-                numBuilder = "";
-            }
-            else
-            {
+                calculate.Num1 = listNumbers[0];
+                calculate.Num2 = listNumbers[1];
+                res = calculate.Div();
                 txtCalc.Text = res.ToString();
-                numBuilder = res.ToString();
+
+                listNumbers.Clear();
+                listNumbers.Add(res);
+                btnDivClicked = false;
+                btnEqualClicked = false;
             }
-        }
-
-        private void btnCalcClear_Click(object sender, EventArgs e)
-        {
-            txtCalc.Clear();
-            listNumbers.Clear();
-            numBuilder = "";
-        }
-
-        private void btnCalcExit_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Do you want to close this window? ", "Close Calculator", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            else if (btnAddClicked)
             {
-                this.Close();
+                calculate.Num1 = listNumbers[0];
+                calculate.Num2 = listNumbers[1];
+                res = calculate.Add();
+                txtCalc.Text = res.ToString();
+
+                listNumbers.Clear();
+                listNumbers.Add(res);
+                btnAddClicked = false;
+                btnEqualClicked = false;
             }
+
+            btnEqualClicked = true;
         }
     }
 }

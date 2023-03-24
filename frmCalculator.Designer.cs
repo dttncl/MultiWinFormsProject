@@ -156,7 +156,6 @@
             this.btnCalcExit.TabIndex = 18;
             this.btnCalcExit.Text = "E&xit";
             this.btnCalcExit.UseVisualStyleBackColor = true;
-            this.btnCalcExit.Click += new System.EventHandler(this.btnCalcExit_Click);
             // 
             // btnCalcClear
             // 
@@ -167,7 +166,6 @@
             this.btnCalcClear.TabIndex = 17;
             this.btnCalcClear.Text = "&Clear";
             this.btnCalcClear.UseVisualStyleBackColor = true;
-            this.btnCalcClear.Click += new System.EventHandler(this.btnCalcClear_Click);
             // 
             // btn4
             // 
