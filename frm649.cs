@@ -18,13 +18,10 @@ namespace WinFormProject
             InitializeComponent();
         }
 
-        private void txtL649_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnL649Gen_Click(object sender, EventArgs e)
         {
+            // BASIC FUNCTION
+            // clear the textbox if button is clicked
             txtL649.Clear();
 
             var generatedNum = new List<int>();
@@ -64,32 +61,51 @@ namespace WinFormProject
             // display list
             foreach (int num in generatedNum)
             {
-                txtL649.Text += num.ToString() + Environment.NewLine;
+                txtL649.Text += num.ToString() + "\r\n";
             }
 
-            // open file for writing
-            StreamWriter lottoFile = new StreamWriter("LottoNbrs.txt",true);
-
-            lottoFile.Write("649, "+DateTime.Now.ToString("yyyy'/'MM'/'dd HH:mm:ss tt") +",\t");
-            // store list to text file
+            // WRITE TO TEXT FILE
+            string outputDesc = "";
             for (int i = 0; i < 6; i++)
             {
-                lottoFile.Write(generatedNum[i]);
+                // position the commas
+                outputDesc += generatedNum[i];
                 if (i < 5)
                 {
-                    lottoFile.Write(",");
+                    outputDesc += ",";
                 }
             }
-            lottoFile.WriteLine("\tBonus {0}",lastItem.ToString());
-            lottoFile.Close();
+
+            outputDesc += $"{"Bonus",8} {lastItem}";
+
+            DataStream toWrite = new DataStream();
+
+            toWrite.FileName = "LottoNbrs";
+            toWrite.FormTitle = "Lotto649";
+            toWrite.Output = "649";
+            toWrite.Description = outputDesc;
+
+            toWrite.WriteFile();
+
         }
 
         private void btn649Exit_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want to quit this application? ", "Exit ?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Do you want to close this window? ", "Close Lotto 649", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                Application.Exit();
+                this.Close();
             }
+        }
+
+        private void btnL649Read_Click(object sender, EventArgs e)
+        {
+            // READ TEXT FILE
+            DataStream toRead = new DataStream();
+
+            toRead.FileName = "LottoNbrs";
+            toRead.FormTitle = "Lotto649";
+
+            toRead.ReadFile();
         }
     }
 }

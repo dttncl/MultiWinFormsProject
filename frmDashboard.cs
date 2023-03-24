@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // Bernadette Fernando
-// April 18 2023
+// March 24 2023
 // This windows form will provide access to different forms that are able to do the following:
-// Generate Numbers, Convert Currency, Calsulator, IPv4 Validator 
+// Generate Numbers, Convert Currency, Calculator, Validate IPv4 
 
 namespace WinFormProject
 {

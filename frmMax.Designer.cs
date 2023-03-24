@@ -76,6 +76,7 @@
             this.btnLMaxRead.TabIndex = 3;
             this.btnLMaxRead.Text = "&Read File";
             this.btnLMaxRead.UseVisualStyleBackColor = true;
+            this.btnLMaxRead.Click += new System.EventHandler(this.btnLMaxRead_Click);
             // 
             // btnLMaxExit
             // 

@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="CurrencyEx.cs" />
+    <Compile Include="DataStream.cs" />
     <Compile Include="frm649.cs">
       <SubType>Form</SubType>
     </Compile>

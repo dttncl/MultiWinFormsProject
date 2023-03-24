@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,6 +25,8 @@ namespace WinFormProject
 
         private void btnLMaxGen_Click(object sender, EventArgs e)
         {
+            // BASIC FUNCTION
+            // clear the textbox if button is clicked
             txtLMax.Clear();
 
             var generatedNum = new List<int>();
@@ -62,32 +65,53 @@ namespace WinFormProject
 
             foreach (int num in generatedNum)
             {
-                txtLMax.Text += num.ToString() + Environment.NewLine;
+                txtLMax.Text += num.ToString() + "\r\n";
             }
 
-            // open file for writing
-            StreamWriter lottoFile = new StreamWriter("LottoNbrs.txt", true);
-
-            lottoFile.Write("Max, " + DateTime.Now.ToString("yyyy'/'MM'/'dd HH:mm:ss tt") + ",\t");
-            // store list to text file
+            
+            // WRITE TO TEXT FILE
+            string outputDesc = "";
             for (int i = 0; i < 7; i++)
             {
-                lottoFile.Write(generatedNum[i]);
+                // position the commas
+                outputDesc += generatedNum[i];
                 if (i < 6)
                 {
-                    lottoFile.Write(",");
+                    outputDesc += ",";
                 }
             }
-            lottoFile.WriteLine("\tBonus {0}", lastItem.ToString());
-            lottoFile.Close();
+
+            outputDesc += $"{"Bonus",8} {lastItem}";
+
+            DataStream toWrite = new DataStream();
+
+            toWrite.FileName = "LottoNbrs";
+            toWrite.FormTitle = "LottoMax";
+            toWrite.Output = "Max";
+            toWrite.Description = outputDesc;
+
+            toWrite.WriteFile();
+
         }
 
         private void btnLMaxExit_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want to quit this application? ", "Exit ?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Do you want to close this window? ", "Close LottoMax", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                Application.Exit();
+                this.Close();
             }
+        }
+
+        private void btnLMaxRead_Click(object sender, EventArgs e)
+        {
+            // READ TEXT FILE
+            DataStream toRead = new DataStream();
+
+            toRead.FileName = "LottoNbrs";
+            toRead.FormTitle = "LottoMax";
+
+            toRead.ReadFile();
+            
         }
     }
 }

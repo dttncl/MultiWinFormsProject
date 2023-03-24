@@ -77,6 +77,7 @@
             this.btnL649Read.TabIndex = 10;
             this.btnL649Read.Text = "&Read File";
             this.btnL649Read.UseVisualStyleBackColor = true;
+            this.btnL649Read.Click += new System.EventHandler(this.btnL649Read_Click);
             // 
             // btnL649Gen
             // 
@@ -96,7 +97,6 @@
             this.txtL649.ReadOnly = true;
             this.txtL649.Size = new System.Drawing.Size(92, 295);
             this.txtL649.TabIndex = 8;
-            this.txtL649.TextChanged += new System.EventHandler(this.txtL649_TextChanged);
             // 
             // label1
             // 
@@ -131,7 +131,7 @@
             this.Controls.Add(this.txtL649);
             this.Controls.Add(this.label1);
             this.Name = "frm649";
-            this.Text = "Lotto 649";
+            this.Text = "Lotto 649 - Bernadette";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
