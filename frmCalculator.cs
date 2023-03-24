@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,11 @@ namespace WinFormProject
         public frmCalculator()
         {
             InitializeComponent();
+
+        }
+
+        private void frmCalculator_Load(object sender, EventArgs e)
+        {
 
         }
 
@@ -97,15 +103,24 @@ namespace WinFormProject
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
-            // when clicked, push the current numBuilder into the list (index 0)
-            listNumbers.Add(Convert.ToDouble(numBuilder));
+            try
+            {
+                // when clicked, push the current numBuilder into the list (index 0)
+                listNumbers.Add(Convert.ToDouble(numBuilder));
 
-            // reset numBuilder to allow input of next number and clear the textbox
-            numBuilder = "";
-            txtCalc.Clear();
+                // reset numBuilder to allow input of next number and clear the textbox
+                numBuilder = "";
+                txtCalc.Clear();
 
-            // set to true
-            btnAddClicked = true;
+                // set to true
+                btnAddClicked = true;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show($"Error! {err.Message}\n" +
+                    $"Please enter a number", "Exception Error");
+
+            }
         }
 
         private void btnSub_Click(object sender, EventArgs e)
@@ -158,6 +173,7 @@ namespace WinFormProject
 
             numBuilder = "";
             double res = 0;
+            byte flag = 0;
 
             // calculate depending on which operation was clicked
             if (btnAddClicked)
@@ -182,25 +198,47 @@ namespace WinFormProject
             }
             else if (btnDivClicked)
             {
-                res = calculate.Div();
+                // handle division by 0
+                if (listNumbers[1] == 0)
+                {
+                    MessageBox.Show("Undefined! Attempted to divide by zero.","Error");
+                    flag = 1;
+
+                } else
+                {
+                    res = calculate.Div();
+                }
+
                 btnDivClicked = false;
                 listNumbers.Clear();
             }
 
-            txtCalc.Text = res.ToString();
-            numBuilder = res.ToString();
+            // handle division by 0
+            if (flag == 1)
+            {
+                txtCalc.Text = "";
+                numBuilder = "";
+            }
+            else
+            {
+                txtCalc.Text = res.ToString();
+                numBuilder = res.ToString();
+            }
         }
 
         private void btnCalcClear_Click(object sender, EventArgs e)
         {
             txtCalc.Clear();
+            listNumbers.Clear();
             numBuilder = "";
-           
         }
 
         private void btnCalcExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Do you want to close this window? ", "Close Calculator", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }
