@@ -57,6 +57,7 @@
             this.txtLMax.ReadOnly = true;
             this.txtLMax.Size = new System.Drawing.Size(92, 295);
             this.txtLMax.TabIndex = 1;
+            this.txtLMax.TabStop = false;
             // 
             // btnLMaxGen
             // 

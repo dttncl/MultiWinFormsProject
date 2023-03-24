@@ -65,7 +65,7 @@ namespace WinFormProject
             }
 
             // WRITE TO TEXT FILE
-            string outputDesc = "";
+            string outputDesc = $"{",",-5}";
             for (int i = 0; i < 6; i++)
             {
                 // position the commas
@@ -81,11 +81,12 @@ namespace WinFormProject
             DataStream toWrite = new DataStream();
 
             toWrite.FileName = "LottoNbrs";
-            toWrite.FormTitle = "Lotto649";
+            toWrite.MsgBoxTitle = "Lotto649";
             toWrite.Output = "649";
             toWrite.Description = outputDesc;
 
             toWrite.WriteFile();
+
 
         }
 
@@ -103,7 +104,7 @@ namespace WinFormProject
             DataStream toRead = new DataStream();
 
             toRead.FileName = "LottoNbrs";
-            toRead.FormTitle = "Lotto649";
+            toRead.MsgBoxTitle = "Lotto649";
 
             toRead.ReadFile();
         }

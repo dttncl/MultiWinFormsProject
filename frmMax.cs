@@ -70,7 +70,7 @@ namespace WinFormProject
 
             
             // WRITE TO TEXT FILE
-            string outputDesc = "";
+            string outputDesc = $"{",",-5}";
             for (int i = 0; i < 7; i++)
             {
                 // position the commas
@@ -86,7 +86,7 @@ namespace WinFormProject
             DataStream toWrite = new DataStream();
 
             toWrite.FileName = "LottoNbrs";
-            toWrite.FormTitle = "LottoMax";
+            toWrite.MsgBoxTitle = "LottoMax";
             toWrite.Output = "Max";
             toWrite.Description = outputDesc;
 
@@ -108,7 +108,7 @@ namespace WinFormProject
             DataStream toRead = new DataStream();
 
             toRead.FileName = "LottoNbrs";
-            toRead.FormTitle = "LottoMax";
+            toRead.MsgBoxTitle = "LottoMax";
 
             toRead.ReadFile();
             

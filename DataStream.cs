@@ -15,7 +15,7 @@ namespace WinFormProject
         // fields
         readonly string directory = @".\Files\";
         private string fileName;
-        private string formTitle;
+        private string msgBoxTitle;
         private string output;
         private string description;
 
@@ -25,10 +25,10 @@ namespace WinFormProject
 
         }
 
-        public DataStream(string fileName, string formTitle, string output, string description)
+        public DataStream(string fileName, string msgBoxTitle, string output, string description)
         {
             FileName = fileName;
-            FormTitle = formTitle;
+            MsgBoxTitle = msgBoxTitle;
             Output = output;
             Description = description;
         }
@@ -40,10 +40,10 @@ namespace WinFormProject
             set { fileName = value; }
         }
 
-        public string FormTitle
+        public string MsgBoxTitle
         {
-            get { return formTitle + " Results by Bernadette"; }
-            set { formTitle = value; }
+            get { return msgBoxTitle + " Results by Bernadette"; }
+            set { msgBoxTitle = value; }
         }
 
         public string Output
@@ -72,7 +72,7 @@ namespace WinFormProject
             }
             catch (FileNotFoundException)
             {
-                MessageBox.Show(fileName + " not found.\nCreating...", "New File Created");
+                MessageBox.Show(FileName + " not found.\nCreating...", "New File Created");
                 File.Create(path).Close();
             }
             catch (DirectoryNotFoundException)
@@ -97,9 +97,9 @@ namespace WinFormProject
             StreamWriter textFile = new StreamWriter(fs);
 
             // building each row of text file
-            textFile.WriteLine($"{Output}, {DateTime.Now,5:yyyy'/'MM'/'dd HH:mm:ss tt}, {Description}");
+            textFile.WriteLine($"{Output},  {DateTime.Now:yyyy'/'MM'/'dd HH:mm:ss tt}{Description}");
 
-            MessageBox.Show($"Saved Changes to {fileName}!", "Saved");
+            MessageBox.Show($"Saved Changes to {FileName}!", "Saved");
 
             textFile.Close();
             fs.Close();
@@ -152,11 +152,11 @@ namespace WinFormProject
             // check if file is empty
             if (line == "")
             {
-                MessageBox.Show("File Empty.", FormTitle);
+                MessageBox.Show("File Empty.", MsgBoxTitle);
             }
             else
             {
-                MessageBox.Show(line, FormTitle);
+                MessageBox.Show(line, MsgBoxTitle);
                 
             }
 

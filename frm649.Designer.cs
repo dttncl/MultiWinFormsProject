@@ -97,6 +97,7 @@
             this.txtL649.ReadOnly = true;
             this.txtL649.Size = new System.Drawing.Size(92, 295);
             this.txtL649.TabIndex = 8;
+            this.txtL649.TabStop = false;
             // 
             // label1
             // 

@@ -64,7 +64,7 @@ namespace WinFormProject
             }
 
             decimal convCAD = Amt / mul;
-            return convCAD;
+            return Math.Round(convCAD,2);
         }
 
         // covert from CAD to any currency
@@ -92,7 +92,7 @@ namespace WinFormProject
             }
 
             decimal convAmt = convCAD * mul;
-            return convAmt;
+            return Math.Round(convAmt,2);
         }
     }
 }

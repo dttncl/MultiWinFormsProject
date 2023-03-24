@@ -88,7 +88,6 @@
             this.grpConvFrom.TabIndex = 0;
             this.grpConvFrom.TabStop = false;
             this.grpConvFrom.Text = "From";
-            this.grpConvFrom.Enter += new System.EventHandler(this.grpConvFrom_Enter);
             // 
             // pictureBox5
             // 
@@ -107,7 +106,7 @@
             this.optPHP.Location = new System.Drawing.Point(31, 220);
             this.optPHP.Name = "optPHP";
             this.optPHP.Size = new System.Drawing.Size(66, 24);
-            this.optPHP.TabIndex = 8;
+            this.optPHP.TabIndex = 4;
             this.optPHP.TabStop = true;
             this.optPHP.Text = "PHP";
             this.optPHP.UseVisualStyleBackColor = true;
@@ -129,7 +128,7 @@
             this.optGBP.Location = new System.Drawing.Point(31, 174);
             this.optGBP.Name = "optGBP";
             this.optGBP.Size = new System.Drawing.Size(68, 24);
-            this.optGBP.TabIndex = 6;
+            this.optGBP.TabIndex = 3;
             this.optGBP.TabStop = true;
             this.optGBP.Text = "GBP";
             this.optGBP.UseVisualStyleBackColor = true;
@@ -151,7 +150,7 @@
             this.optEUR.Location = new System.Drawing.Point(31, 128);
             this.optEUR.Name = "optEUR";
             this.optEUR.Size = new System.Drawing.Size(69, 24);
-            this.optEUR.TabIndex = 4;
+            this.optEUR.TabIndex = 2;
             this.optEUR.TabStop = true;
             this.optEUR.Text = "EUR";
             this.optEUR.UseVisualStyleBackColor = true;
@@ -173,7 +172,7 @@
             this.optUSD.Location = new System.Drawing.Point(31, 82);
             this.optUSD.Name = "optUSD";
             this.optUSD.Size = new System.Drawing.Size(69, 24);
-            this.optUSD.TabIndex = 2;
+            this.optUSD.TabIndex = 1;
             this.optUSD.TabStop = true;
             this.optUSD.Text = "USD";
             this.optUSD.UseVisualStyleBackColor = true;
@@ -236,7 +235,7 @@
             this.optToPHP.Location = new System.Drawing.Point(31, 220);
             this.optToPHP.Name = "optToPHP";
             this.optToPHP.Size = new System.Drawing.Size(66, 24);
-            this.optToPHP.TabIndex = 8;
+            this.optToPHP.TabIndex = 9;
             this.optToPHP.TabStop = true;
             this.optToPHP.Text = "PHP";
             this.optToPHP.UseVisualStyleBackColor = true;
@@ -258,7 +257,7 @@
             this.optToGBP.Location = new System.Drawing.Point(31, 174);
             this.optToGBP.Name = "optToGBP";
             this.optToGBP.Size = new System.Drawing.Size(68, 24);
-            this.optToGBP.TabIndex = 6;
+            this.optToGBP.TabIndex = 8;
             this.optToGBP.TabStop = true;
             this.optToGBP.Text = "GBP";
             this.optToGBP.UseVisualStyleBackColor = true;
@@ -280,7 +279,7 @@
             this.optToEUR.Location = new System.Drawing.Point(31, 128);
             this.optToEUR.Name = "optToEUR";
             this.optToEUR.Size = new System.Drawing.Size(69, 24);
-            this.optToEUR.TabIndex = 4;
+            this.optToEUR.TabIndex = 7;
             this.optToEUR.TabStop = true;
             this.optToEUR.Text = "EUR";
             this.optToEUR.UseVisualStyleBackColor = true;
@@ -302,7 +301,7 @@
             this.optToUSD.Location = new System.Drawing.Point(31, 82);
             this.optToUSD.Name = "optToUSD";
             this.optToUSD.Size = new System.Drawing.Size(69, 24);
-            this.optToUSD.TabIndex = 2;
+            this.optToUSD.TabIndex = 6;
             this.optToUSD.TabStop = true;
             this.optToUSD.Text = "USD";
             this.optToUSD.UseVisualStyleBackColor = true;
@@ -324,7 +323,7 @@
             this.optToCAD.Location = new System.Drawing.Point(31, 36);
             this.optToCAD.Name = "optToCAD";
             this.optToCAD.Size = new System.Drawing.Size(68, 24);
-            this.optToCAD.TabIndex = 0;
+            this.optToCAD.TabIndex = 5;
             this.optToCAD.TabStop = true;
             this.optToCAD.Text = "CAD";
             this.optToCAD.UseVisualStyleBackColor = true;
@@ -334,7 +333,7 @@
             this.txtConvFrom.Location = new System.Drawing.Point(57, 351);
             this.txtConvFrom.Name = "txtConvFrom";
             this.txtConvFrom.Size = new System.Drawing.Size(160, 26);
-            this.txtConvFrom.TabIndex = 11;
+            this.txtConvFrom.TabIndex = 10;
             // 
             // txtConvTo
             // 
@@ -343,13 +342,14 @@
             this.txtConvTo.ReadOnly = true;
             this.txtConvTo.Size = new System.Drawing.Size(160, 26);
             this.txtConvTo.TabIndex = 12;
+            this.txtConvTo.TabStop = false;
             // 
             // btnMExExit
             // 
             this.btnMExExit.Location = new System.Drawing.Point(388, 426);
             this.btnMExExit.Name = "btnMExExit";
             this.btnMExExit.Size = new System.Drawing.Size(118, 46);
-            this.btnMExExit.TabIndex = 15;
+            this.btnMExExit.TabIndex = 13;
             this.btnMExExit.Text = "E&xit";
             this.btnMExExit.UseVisualStyleBackColor = true;
             this.btnMExExit.Click += new System.EventHandler(this.btnMExExit_Click);
@@ -359,16 +359,17 @@
             this.btnMExRead.Location = new System.Drawing.Point(211, 429);
             this.btnMExRead.Name = "btnMExRead";
             this.btnMExRead.Size = new System.Drawing.Size(118, 43);
-            this.btnMExRead.TabIndex = 14;
+            this.btnMExRead.TabIndex = 12;
             this.btnMExRead.Text = "&Read File";
             this.btnMExRead.UseVisualStyleBackColor = true;
+            this.btnMExRead.Click += new System.EventHandler(this.btnMExRead_Click);
             // 
             // btnMEx
             // 
             this.btnMEx.Location = new System.Drawing.Point(37, 428);
             this.btnMEx.Name = "btnMEx";
             this.btnMEx.Size = new System.Drawing.Size(118, 43);
-            this.btnMEx.TabIndex = 13;
+            this.btnMEx.TabIndex = 11;
             this.btnMEx.Text = "&Convert";
             this.btnMEx.UseVisualStyleBackColor = true;
             this.btnMEx.Click += new System.EventHandler(this.btnMEx_Click);
@@ -386,8 +387,7 @@
             this.Controls.Add(this.grpConvTo);
             this.Controls.Add(this.grpConvFrom);
             this.Name = "frmMoneyEx";
-            this.Text = "frmMoneyEx";
-            this.Load += new System.EventHandler(this.frmMoneyEx_Load);
+            this.Text = "Money Exchange - Bernadette";
             this.grpConvFrom.ResumeLayout(false);
             this.grpConvFrom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();

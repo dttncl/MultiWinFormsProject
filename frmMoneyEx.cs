@@ -15,16 +15,21 @@ namespace WinFormProject
         public frmMoneyEx()
         {
             InitializeComponent();
+            optCAD.Checked = true;
+            optToCAD.Checked = true;
+            txtConvFrom.Text = "0";
+            txtConvTo.Text = "0";
         }
+
+        string currencyFrom, currencyTo;
 
         private void btnMEx_Click(object sender, EventArgs e)
         {
-            CurrencyEx moneyConvert = new CurrencyEx();
+            // BASIC FUNCTION
+            CurrencyEx moneyConvert = new CurrencyEx();       
 
             // FROM Group
-            string currencyFrom = "CAD";
-
-            if(optUSD.Checked)
+            if (optUSD.Checked)
             {
                 currencyFrom = "USD";
             }
@@ -40,10 +45,12 @@ namespace WinFormProject
             {
                 currencyFrom = "PHP";
             }
+            else if (optCAD.Checked)
+            {
+                currencyFrom = "CAD";
+            }
 
             // TO Group
-            string currencyTo = "CAD";
-
             if (optToUSD.Checked)
             {
                 currencyTo = "USD";
@@ -60,32 +67,58 @@ namespace WinFormProject
             {
                 currencyTo = "PHP";
             }
+            else if (optToCAD.Checked)
+            {
+                currencyTo = "CAD";
+            }
 
-            moneyConvert.Amt = Convert.ToDecimal(txtConvFrom.Text);
+            try
+            {
+                moneyConvert.Amt = Convert.ToDecimal(txtConvFrom.Text);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show($"Error! {err.Message}","Exception Error");
+                txtConvFrom.Focus();
+            }
 
             // convert amount to CAD
             decimal convCAD = moneyConvert.ConvertToCAD(currencyFrom);
 
             // convert CAD to any amount
-            txtConvTo.Text = moneyConvert.ConvertToCurrency(convCAD,currencyTo).ToString();
+            decimal convCurrency = moneyConvert.ConvertToCurrency(convCAD, currencyTo);
+            txtConvTo.Text = convCurrency.ToString();
+
+            // WRITE TO TEXT FILE
+            DataStream toWrite = new DataStream();
+
+            toWrite.FileName = "MoneyConv";
+            toWrite.MsgBoxTitle = "Money Conversion";
+            toWrite.Output = $"{moneyConvert.Amt} {currencyFrom} = {convCurrency} {currencyTo}";
+            toWrite.Description = "";
+
+            toWrite.WriteFile();
+
+        }
+
+        private void btnMExRead_Click(object sender, EventArgs e)
+        {
+            // READ TEXT FILE
+            DataStream toRead = new DataStream();
+
+            toRead.FileName = "MoneyConv";
+            toRead.MsgBoxTitle = "Money Conversion";
+
+            toRead.ReadFile();
         }
 
         private void btnMExExit_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want\nto quit the application\nMoney Exchange? ", "Exit ?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Do you want to close this window? ", "Close Money Exchange", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                Application.Exit();
+                this.Close();
             }
         }
 
-        private void frmMoneyEx_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void grpConvFrom_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }
