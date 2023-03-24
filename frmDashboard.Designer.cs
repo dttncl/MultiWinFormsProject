@@ -260,7 +260,8 @@
             this.Controls.Add(this.btnMainExit);
             this.Controls.Add(this.tabControl1);
             this.Name = "frmDashboard";
-            this.Text = " ";
+            this.Text = " Dashboard - Bernadette Fernando";
+            this.Load += new System.EventHandler(this.frmDashboard_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.grpLotto.ResumeLayout(false);

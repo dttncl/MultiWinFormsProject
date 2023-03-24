@@ -28,15 +28,7 @@ namespace WinFormProject
             app.Show();
         }
 
-        private void btnMainExit_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Do you want to quit this application? ", "Exit ?", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-            
-        }
-
+        
         private void btnLotto649_Click(object sender, EventArgs e)
         {
             frm649 app = new frm649();
@@ -65,6 +57,20 @@ namespace WinFormProject
         {
             frmIPv4Validator app = new frmIPv4Validator();
             app.Show();
+        }
+
+        private void btnMainExit_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to quit this application? ", "Exit ?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+
+        }
+
+        private void frmDashboard_Load(object sender, EventArgs e)
+        {
+
         }
     }
 

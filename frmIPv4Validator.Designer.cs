@@ -54,7 +54,6 @@
             this.lblIPValDate.Size = new System.Drawing.Size(97, 20);
             this.lblIPValDate.TabIndex = 1;
             this.lblIPValDate.Text = "CurrentDate";
-            this.lblIPValDate.Click += new System.EventHandler(this.lblIPValDate_Click);
             // 
             // label3
             // 
@@ -98,6 +97,7 @@
             this.btnIPVal.TabIndex = 12;
             this.btnIPVal.Text = "Validate IP";
             this.btnIPVal.UseVisualStyleBackColor = true;
+            this.btnIPVal.Click += new System.EventHandler(this.btnIPVal_Click);
             // 
             // frmIPv4Validator
             // 
