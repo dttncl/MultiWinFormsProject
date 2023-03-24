@@ -80,6 +80,7 @@
             this.txtTempTo.ReadOnly = true;
             this.txtTempTo.Size = new System.Drawing.Size(177, 26);
             this.txtTempTo.TabIndex = 3;
+            this.txtTempTo.TabStop = false;
             // 
             // label1
             // 
@@ -121,11 +122,12 @@
             // 
             // rtfTempDesc
             // 
-            this.rtfTempDesc.Location = new System.Drawing.Point(56, 316);
+            this.rtfTempDesc.Location = new System.Drawing.Point(56, 311);
             this.rtfTempDesc.Name = "rtfTempDesc";
             this.rtfTempDesc.ReadOnly = true;
-            this.rtfTempDesc.Size = new System.Drawing.Size(429, 79);
+            this.rtfTempDesc.Size = new System.Drawing.Size(429, 84);
             this.rtfTempDesc.TabIndex = 9;
+            this.rtfTempDesc.TabStop = false;
             this.rtfTempDesc.Text = "";
             // 
             // btnTConvExit
@@ -133,25 +135,27 @@
             this.btnTConvExit.Location = new System.Drawing.Point(387, 421);
             this.btnTConvExit.Name = "btnTConvExit";
             this.btnTConvExit.Size = new System.Drawing.Size(118, 46);
-            this.btnTConvExit.TabIndex = 14;
+            this.btnTConvExit.TabIndex = 5;
             this.btnTConvExit.Text = "E&xit";
             this.btnTConvExit.UseVisualStyleBackColor = true;
+            this.btnTConvExit.Click += new System.EventHandler(this.btnTConvExit_Click);
             // 
             // btnTConvRead
             // 
             this.btnTConvRead.Location = new System.Drawing.Point(210, 424);
             this.btnTConvRead.Name = "btnTConvRead";
             this.btnTConvRead.Size = new System.Drawing.Size(118, 43);
-            this.btnTConvRead.TabIndex = 13;
+            this.btnTConvRead.TabIndex = 4;
             this.btnTConvRead.Text = "&Read File";
             this.btnTConvRead.UseVisualStyleBackColor = true;
+            this.btnTConvRead.Click += new System.EventHandler(this.btnTConvRead_Click);
             // 
             // btnTConv
             // 
             this.btnTConv.Location = new System.Drawing.Point(36, 423);
             this.btnTConv.Name = "btnTConv";
             this.btnTConv.Size = new System.Drawing.Size(118, 43);
-            this.btnTConv.TabIndex = 12;
+            this.btnTConv.TabIndex = 3;
             this.btnTConv.Text = "&Convert";
             this.btnTConv.UseVisualStyleBackColor = true;
             this.btnTConv.Click += new System.EventHandler(this.btnTConv_Click);
@@ -174,7 +178,8 @@
             this.Controls.Add(this.optFtoC);
             this.Controls.Add(this.optCtoF);
             this.Name = "frmTempConv";
-            this.Text = "frmTempConv";
+            this.Text = "Temp Converter - Bernadette";
+            this.Load += new System.EventHandler(this.frmTempConv_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

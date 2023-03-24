@@ -108,5 +108,10 @@ namespace WinFormProject
 
             toRead.ReadFile();
         }
+
+        private void frm649_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

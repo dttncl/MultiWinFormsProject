@@ -33,12 +33,12 @@ namespace WinFormProject
         // methods
         public decimal ConvertToCelcius()
         {
-            return (Temp - 32) * 5 / 9;
+            return Math.Round((Temp - 32) * 5 / 9,1);
         }
 
         public decimal ConvertToFarenheit()
         {
-            return (Temp * 9 / 5) + 32;
+            return Math.Round((Temp * 9 / 5) + 32,1);
         }
 
         public string DescribeTemperature(char unitFrom)
@@ -46,7 +46,7 @@ namespace WinFormProject
             // use temp in celsius for the evaluation
             if(unitFrom != 'C')
             {
-                Temp = (Temp - 32) * 5 / 9;
+                Temp = Math.Round((Temp - 32) * 5 / 9, 1);
             }
 
             string desc = "";
@@ -90,8 +90,6 @@ namespace WinFormProject
                 {
                     desc += "\n(and the same number!)";
                 }
-
-                
             }
 
             return desc;

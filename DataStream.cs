@@ -31,6 +31,7 @@ namespace WinFormProject
             MsgBoxTitle = msgBoxTitle;
             Output = output;
             Description = description;
+
         }
 
         // property

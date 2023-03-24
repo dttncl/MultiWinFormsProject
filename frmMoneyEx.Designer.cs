@@ -388,6 +388,7 @@
             this.Controls.Add(this.grpConvFrom);
             this.Name = "frmMoneyEx";
             this.Text = "Money Exchange - Bernadette";
+            this.Load += new System.EventHandler(this.frmMoneyEx_Load);
             this.grpConvFrom.ResumeLayout(false);
             this.grpConvFrom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();

@@ -20,48 +20,85 @@ namespace WinFormProject
         private void btnTConv_Click(object sender, EventArgs e)
         {
             ConvertTemp tempConvert = new ConvertTemp();
-            tempConvert.Temp = Convert.ToDecimal(txtTempFrom.Text);
+            decimal convTemp;
 
-            char unitFrom = 'F';
-
-            if (optCtoF.Checked)
+            try
             {
-                txtTempTo.Text = tempConvert.ConvertToFarenheit().ToString();
-                unitFrom = 'C';
+                // BASIC FUNCTION
+                string inputTemp = txtTempFrom.Text.Trim();
+                tempConvert.Temp = Convert.ToDecimal(inputTemp);
 
-                if (tempConvert.Temp >= 40)
+                char unitFrom, unitTo;
+                if (optCtoF.Checked)
                 {
-                    rtfTempDesc.ForeColor = Color.Red;
+                    // convert temp from C to F
+                    convTemp = tempConvert.ConvertToFarenheit();
+                    txtTempTo.Text = convTemp.ToString();
+                    unitFrom = 'C';
+                    unitTo = 'F';
+
+                    // change text color
+                    if (tempConvert.Temp >= 40)
+                    {
+                        rtfTempDesc.ForeColor = Color.Red;
+                    }
+                    else if (tempConvert.Temp >= 21 && tempConvert.Temp < 40)
+                    {
+                        rtfTempDesc.ForeColor = Color.Green;
+                    }
+                    else if (tempConvert.Temp < 21)
+                    {
+                        rtfTempDesc.ForeColor = Color.Blue;
+                    }
                 }
-                else if (tempConvert.Temp >= 21 && tempConvert.Temp < 40)
+                else
                 {
-                    rtfTempDesc.ForeColor = Color.Green;
+                    // convert temp from F to C
+                    convTemp = tempConvert.ConvertToCelcius();
+                    txtTempTo.Text = convTemp.ToString();
+                    unitFrom = 'F';
+                    unitTo = 'C';
+
+                    // change text color
+                    if (tempConvert.Temp >= 104)
+                    {
+                        rtfTempDesc.ForeColor = Color.Red;
+                    }
+                    else if (tempConvert.Temp >= 70 && tempConvert.Temp < 104)
+                    {
+                        rtfTempDesc.ForeColor = Color.Green;
+                    }
+                    else if (tempConvert.Temp < 70)
+                    {
+                        rtfTempDesc.ForeColor = Color.Blue;
+                    }
                 }
-                else if (tempConvert.Temp < 21)
-                {
-                    rtfTempDesc.ForeColor = Color.Blue;
-                }
+
+                // display temp description
+                string tempDescription = tempConvert.DescribeTemperature(unitFrom);
+                rtfTempDesc.Text = tempDescription;
+
+                // WRITE TO TEXT FILE
+                DataStream toWrite = new DataStream();
+
+                toWrite.FileName = "TempConv";
+                toWrite.MsgBoxTitle = "Temperature Conversion";
+                toWrite.Output = $"{inputTemp} {unitFrom} = {convTemp} {unitTo}";
+
+                // remove line break before saving to text file
+                tempDescription = tempDescription.Replace("\n","").Replace("\r"," ");
+                toWrite.Description = "  " + tempDescription;
+
+                toWrite.WriteFile();
+
             }
-            else
+            catch (Exception err)
             {
-                txtTempTo.Text = tempConvert.ConvertToCelcius().ToString();
-
-                if (tempConvert.Temp >= 104)
-                {
-                    rtfTempDesc.ForeColor = Color.Red;
-                }
-                else if (tempConvert.Temp >= 70 && tempConvert.Temp < 104)
-                {
-                    rtfTempDesc.ForeColor = Color.Green;
-                }
-                else if (tempConvert.Temp < 70)
-                {
-                    rtfTempDesc.ForeColor = Color.Blue;
-                }
+                MessageBox.Show($"Error! {err.Message}", "Exception Error");
+                txtTempFrom.Text = "0";
+                rtfTempDesc.Text = "";
+                txtTempFrom.Focus();
             }
-
-            rtfTempDesc.Text = tempConvert.DescribeTemperature(unitFrom);
-
         }
 
         private void optFtoC_CheckedChanged(object sender, EventArgs e)
@@ -74,6 +111,33 @@ namespace WinFormProject
         {
             lblFrom.Text = "C";
             lblTo.Text = "F";
+        }
+
+        private void frmTempConv_Load(object sender, EventArgs e)
+        {
+            optCtoF.Checked = true;
+            optFtoC.Checked = false;
+            txtTempFrom.Text = "0";
+            txtTempTo.Text = "0";
+            rtfTempDesc.Text = "";
+        }
+
+        private void btnTConvRead_Click(object sender, EventArgs e)
+        {
+            DataStream toRead = new DataStream();
+
+            toRead.FileName = "TempConv";
+            toRead.MsgBoxTitle = "Temperature Conversion";
+
+            toRead.ReadFile();
+        }
+
+        private void btnTConvExit_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to close this window? ", "Close Temp Converter", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

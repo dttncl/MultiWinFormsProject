@@ -133,6 +133,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frm649";
             this.Text = "Lotto 649 - Bernadette";
+            this.Load += new System.EventHandler(this.frm649_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
