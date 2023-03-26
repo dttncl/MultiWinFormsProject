@@ -283,7 +283,6 @@
             this.Name = "frmCalculator";
             this.Text = "Calculator - Bernadette";
             this.Load += new System.EventHandler(this.frmCalculator_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCalculator_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

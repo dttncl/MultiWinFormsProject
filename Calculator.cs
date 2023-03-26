@@ -56,5 +56,74 @@ namespace WinFormProject
         {
             return Num1 / Num2;
         }
+
+        public double Solve (List<double> listNumbers,string btn)
+        {
+            double res = 0;
+
+            if (btn == "btnSubClicked")
+            {
+                res = Sub();
+                listNumbers.Clear();
+                listNumbers.Add(res);
+            }
+            else if (btn == "btnAddClicked")
+            {
+                res = Add();
+                listNumbers.Clear();
+                listNumbers.Add(res);
+            }
+            else if (btn == "btnMulClicked")
+            {
+                res = Mul();
+                listNumbers.Clear();
+                listNumbers.Add(res);
+            }
+            else if (btn == "btnDivClicked")
+            {
+                res = Div();
+                listNumbers.Clear();
+                listNumbers.Add(res);
+            }
+
+            return res;
+        }
+
+
+        //public double Equal(List<double> listNumbers, string btn, double temp)
+        //{
+        //    double res = 0;
+
+        //    if (btn == "btnSubClicked")
+        //    {
+        //        res = Sub();
+        //        listNumbers.Clear();
+        //        listNumbers.Add(res);
+        //        listNumbers.Add(temp);
+        //    }
+        //    else if (btn == "btnAddClicked")
+        //    {
+        //        res = Add();
+        //        listNumbers.Clear();
+        //        listNumbers.Add(res);
+        //        listNumbers.Add(temp);
+        //    }
+        //    else if (btn == "btnMulClicked")
+        //    {
+        //        res = Mul();
+        //        listNumbers.Clear();
+        //        listNumbers.Add(res);
+        //        listNumbers.Add(temp);
+        //    }
+        //    else if (btn == "btnDivClicked")
+        //    {
+        //        res = Div();
+        //        listNumbers.Clear();
+        //        listNumbers.Add(res);
+        //        listNumbers.Add(temp);
+        //    }
+
+        //    return res;
+        //}
     }
 }

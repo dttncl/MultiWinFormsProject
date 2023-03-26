@@ -19,10 +19,10 @@ namespace WinFormProject
             InitializeComponent();
 
         }
-        
+
         private void frmCalculator_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         // initiate the constructor
@@ -37,12 +37,13 @@ namespace WinFormProject
         private bool btnDivClicked = false;
         private bool btnEqualClicked = false;
         double res;
+        char op;
 
         private void btn1_Click(object sender, EventArgs e)
         {
 
             numBuilder += "1";
-            txtCalc.Text = numBuilder;            
+            txtCalc.Text = numBuilder;
         }
 
         private void btn2_Click(object sender, EventArgs e)
@@ -110,6 +111,7 @@ namespace WinFormProject
             double num = Convert.ToDouble(numBuilder);
             listNumbers.Add(num);
             numBuilder = "";
+            op = '+';
 
             if (!btnEqualClicked)
             {
@@ -117,73 +119,51 @@ namespace WinFormProject
                 {
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-                    res = calculate.Sub();
-                    txtCalc.Text = res.ToString();
 
-                    listNumbers.Clear();
-                    listNumbers.Add(res);
+                    txtCalc.Text = calculate.Solve(listNumbers, "btnSubClicked").ToString();
                     btnSubClicked = false;
-
                 }
                 else if (btnMulClicked)
                 {
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-                    res = calculate.Mul();
-                    txtCalc.Text = res.ToString();
 
-                    listNumbers.Clear();
-                    listNumbers.Add(res);
+                    txtCalc.Text = calculate.Solve(listNumbers, "btnMulClicked").ToString();
                     btnMulClicked = false;
-
                 }
                 else if (btnDivClicked)
                 {
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-                    res = calculate.Div();
-                    txtCalc.Text = res.ToString();
 
-                    listNumbers.Clear();
-                    listNumbers.Add(res);
+                    txtCalc.Text = calculate.Solve(listNumbers, "btnDivClicked").ToString();
                     btnDivClicked = false;
-
                 }
                 else if (btnAddClicked)
                 {
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-                    res = calculate.Add();
-                    txtCalc.Text = res.ToString();
 
-                    listNumbers.Clear();
-                    listNumbers.Add(res);
+                    txtCalc.Text = calculate.Solve(listNumbers, "btnAddClicked").ToString();
                     btnAddClicked = false;
-
                 }
             }
             else if (btnEqualClicked)
             {
                 listNumbers.RemoveRange(1, 2);
                 txtCalc.Text = res.ToString();
-                btnEqualClicked = false;
-                btnAddClicked = false;
-                btnSubClicked = false;
-                btnMulClicked = false;
-                btnDivClicked = false;
+                btnEqualClicked = btnAddClicked = btnSubClicked = btnMulClicked = btnDivClicked =  false;
             }
-
 
             btnAddClicked = true;
         }
 
         private void btnSub_Click(object sender, EventArgs e)
         {
-
-
-                double num = Convert.ToDouble(numBuilder);
-                listNumbers.Add(num);
-                numBuilder = "";
+            double num = Convert.ToDouble(numBuilder);
+            listNumbers.Add(num);
+            numBuilder = "";
+            op = '-';
 
             if (!btnEqualClicked)
             {
@@ -191,72 +171,51 @@ namespace WinFormProject
                 {
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-                    res = calculate.Sub();
-                    txtCalc.Text = res.ToString();
 
-                    listNumbers.Clear();
-                    listNumbers.Add(res);
+                    txtCalc.Text = calculate.Solve(listNumbers, "btnSubClicked").ToString();
                     btnSubClicked = false;
-
                 }
                 else if (btnMulClicked)
                 {
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-                    res = calculate.Mul();
-                    txtCalc.Text = res.ToString();
 
-                    listNumbers.Clear();
-                    listNumbers.Add(res);
+                    txtCalc.Text = calculate.Solve(listNumbers, "btnMulClicked").ToString();
                     btnMulClicked = false;
-
                 }
                 else if (btnDivClicked)
                 {
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-                    res = calculate.Div();
-                    txtCalc.Text = res.ToString();
 
-                    listNumbers.Clear();
-                    listNumbers.Add(res);
+                    txtCalc.Text = calculate.Solve(listNumbers, "btnDivClicked").ToString();
                     btnDivClicked = false;
-
                 }
                 else if (btnAddClicked)
                 {
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-                    res = calculate.Add();
-                    txtCalc.Text = res.ToString();
 
-                    listNumbers.Clear();
-                    listNumbers.Add(res);
+                    txtCalc.Text = calculate.Solve(listNumbers, "btnAddClicked").ToString();
                     btnAddClicked = false;
-
                 }
             }
             else if (btnEqualClicked)
             {
                 listNumbers.RemoveRange(1, 2);
                 txtCalc.Text = res.ToString();
-                btnEqualClicked = false;
-                btnAddClicked = false;
-                btnSubClicked = false;
-                btnMulClicked = false;
-                btnDivClicked = false;
+                btnEqualClicked = btnAddClicked = btnSubClicked = btnMulClicked = btnDivClicked = false;
             }
-
 
             btnSubClicked = true;
         }
 
         private void btnMul_Click(object sender, EventArgs e)
         {
-
             double num = Convert.ToDouble(numBuilder);
             listNumbers.Add(num);
             numBuilder = "";
+            op = '*';
 
             if (!btnEqualClicked)
             {
@@ -264,60 +223,40 @@ namespace WinFormProject
                 {
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-                    res = calculate.Sub();
-                    txtCalc.Text = res.ToString();
 
-                    listNumbers.Clear();
-                    listNumbers.Add(res);
+                    txtCalc.Text = calculate.Solve(listNumbers, "btnSubClicked").ToString();
                     btnSubClicked = false;
-
                 }
                 else if (btnMulClicked)
                 {
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-                    res = calculate.Mul();
-                    txtCalc.Text = res.ToString();
 
-                    listNumbers.Clear();
-                    listNumbers.Add(res);
+                    txtCalc.Text = calculate.Solve(listNumbers, "btnMulClicked").ToString();
                     btnMulClicked = false;
-
                 }
                 else if (btnDivClicked)
                 {
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-                    res = calculate.Div();
-                    txtCalc.Text = res.ToString();
 
-                    listNumbers.Clear();
-                    listNumbers.Add(res);
+                    txtCalc.Text = calculate.Solve(listNumbers, "btnDivClicked").ToString();
                     btnDivClicked = false;
-
                 }
                 else if (btnAddClicked)
                 {
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-                    res = calculate.Add();
-                    txtCalc.Text = res.ToString();
 
-                    listNumbers.Clear();
-                    listNumbers.Add(res);
+                    txtCalc.Text = calculate.Solve(listNumbers, "btnAddClicked").ToString();
                     btnAddClicked = false;
-
                 }
             }
             else if (btnEqualClicked)
             {
                 listNumbers.RemoveRange(1, 2);
                 txtCalc.Text = res.ToString();
-                btnEqualClicked = false;
-                btnAddClicked = false;
-                btnSubClicked = false;
-                btnMulClicked = false;
-                btnDivClicked = false;
+                btnEqualClicked = btnAddClicked = btnSubClicked = btnMulClicked = btnDivClicked = false;
             }
 
             btnMulClicked = true;
@@ -325,10 +264,10 @@ namespace WinFormProject
 
         private void btnDiv_Click(object sender, EventArgs e)
         {
-
-                double num = Convert.ToDouble(numBuilder);
-                listNumbers.Add(num);
-                numBuilder = "";
+            double num = Convert.ToDouble(numBuilder);
+            listNumbers.Add(num);
+            numBuilder = "";
+            op = '/';
 
             if (!btnEqualClicked)
             {
@@ -336,62 +275,41 @@ namespace WinFormProject
                 {
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-                    res = calculate.Sub();
-                    txtCalc.Text = res.ToString();
 
-                    listNumbers.Clear();
-                    listNumbers.Add(res);
+                    txtCalc.Text = calculate.Solve(listNumbers, "btnSubClicked").ToString();
                     btnSubClicked = false;
-
                 }
                 else if (btnMulClicked)
                 {
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-                    res = calculate.Mul();
-                    txtCalc.Text = res.ToString();
 
-                    listNumbers.Clear();
-                    listNumbers.Add(res);
+                    txtCalc.Text = calculate.Solve(listNumbers, "btnMulClicked").ToString();
                     btnMulClicked = false;
-
                 }
                 else if (btnDivClicked)
                 {
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-                    res = calculate.Div();
-                    txtCalc.Text = res.ToString();
 
-                    listNumbers.Clear();
-                    listNumbers.Add(res);
+                    txtCalc.Text = calculate.Solve(listNumbers, "btnDivClicked").ToString();
                     btnDivClicked = false;
-
                 }
                 else if (btnAddClicked)
                 {
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-                    res = calculate.Add();
-                    txtCalc.Text = res.ToString();
 
-                    listNumbers.Clear();
-                    listNumbers.Add(res);
+                    txtCalc.Text = calculate.Solve(listNumbers, "btnAddClicked").ToString();
                     btnAddClicked = false;
-
                 }
             }
             else if (btnEqualClicked)
             {
                 listNumbers.RemoveRange(1, 2);
                 txtCalc.Text = res.ToString();
-                btnEqualClicked = false;
-                btnAddClicked = false;
-                btnSubClicked = false;
-                btnMulClicked = false;
-                btnDivClicked = false;
+                btnEqualClicked = btnAddClicked = btnSubClicked = btnMulClicked = btnDivClicked = false;
             }
-
 
             btnDivClicked = true;
         }
@@ -401,6 +319,7 @@ namespace WinFormProject
             double num = Convert.ToDouble(numBuilder);
             listNumbers.Add(num);
             double temp = num;
+            op = '=';
 
             if (btnAddClicked)
             {
@@ -449,65 +368,6 @@ namespace WinFormProject
 
             btnEqualClicked = true;
 
-        }
-
-        private void frmCalculator_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.NumPad0)
-            {
-                btn0.PerformClick();
-                e.Handled = true;
-            }
-            else if (e.KeyCode == Keys.NumPad1)
-            {
-                btn1.PerformClick();
-                e.Handled = true;
-            }
-            else if (e.KeyCode == Keys.NumPad2)
-            {
-                btn2.PerformClick();
-                e.Handled = true;
-            }
-            else if (e.KeyCode == Keys.NumPad3)
-            {
-                btn3.PerformClick();
-                e.Handled = true;
-            }
-            else if (e.KeyCode == Keys.NumPad4)
-            {
-                btn4.PerformClick();
-                e.Handled = true;
-            }
-            else if (e.KeyCode == Keys.NumPad5)
-            {
-                btn5.PerformClick();
-                e.Handled = true;
-            }
-            else if (e.KeyCode == Keys.NumPad6)
-            {
-                btn6.PerformClick();
-                e.Handled = true;
-            }
-            else if (e.KeyCode == Keys.NumPad7)
-            {
-                btn7.PerformClick();
-                e.Handled = true;
-            }
-            else if (e.KeyCode == Keys.NumPad8)
-            {
-                btn8.PerformClick();
-                e.Handled = true;
-            }
-            else if (e.KeyCode == Keys.NumPad9)
-            {
-                btn9.PerformClick();
-                e.Handled = true;
-            }
-            else if (e.KeyCode == Keys.Decimal)
-            {
-                btnDecimal.PerformClick();
-                e.Handled = true;
-            }
         }
     }
 }
