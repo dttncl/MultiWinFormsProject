@@ -36,6 +36,7 @@ namespace WinFormProject
         private bool btnMulClicked = false;
         private bool btnDivClicked = false;
         private bool btnEqualClicked = false;
+
         double res;
         char op;
 
@@ -111,40 +112,80 @@ namespace WinFormProject
             double num = Convert.ToDouble(numBuilder);
             listNumbers.Add(num);
             numBuilder = "";
-            op = '+';
+            
 
             if (!btnEqualClicked)
             {
                 if (btnSubClicked)
                 {
+                    op = '-';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
 
                     txtCalc.Text = calculate.Solve(listNumbers, "btnSubClicked").ToString();
+
+                    // WRITE TO TEXT FILE
+                    DataStream toWrite = new DataStream();
+                    toWrite.FileName = "Calculator";
+                    toWrite.MsgBoxTitle = "Calculator";
+                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                    toWrite.Description = "";
+                    toWrite.WriteFile();
+
                     btnSubClicked = false;
                 }
                 else if (btnMulClicked)
                 {
+                    op = '*';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
 
                     txtCalc.Text = calculate.Solve(listNumbers, "btnMulClicked").ToString();
+
+                    // WRITE TO TEXT FILE
+                    DataStream toWrite = new DataStream();
+                    toWrite.FileName = "Calculator";
+                    toWrite.MsgBoxTitle = "Calculator";
+                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                    toWrite.Description = "";
+                    toWrite.WriteFile();
+
                     btnMulClicked = false;
                 }
                 else if (btnDivClicked)
                 {
+                    op = '/';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
 
                     txtCalc.Text = calculate.Solve(listNumbers, "btnDivClicked").ToString();
+
+                    // WRITE TO TEXT FILE
+                    DataStream toWrite = new DataStream();
+                    toWrite.FileName = "Calculator";
+                    toWrite.MsgBoxTitle = "Calculator";
+                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                    toWrite.Description = "";
+                    toWrite.WriteFile();
+
                     btnDivClicked = false;
                 }
                 else if (btnAddClicked)
                 {
+                    op = '+';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
 
                     txtCalc.Text = calculate.Solve(listNumbers, "btnAddClicked").ToString();
+
+                    // WRITE TO TEXT FILE
+                    DataStream toWrite = new DataStream();
+                    toWrite.FileName = "Calculator";
+                    toWrite.MsgBoxTitle = "Calculator";
+                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                    toWrite.Description = "";
+                    toWrite.WriteFile();
+
                     btnAddClicked = false;
                 }
             }
@@ -163,40 +204,80 @@ namespace WinFormProject
             double num = Convert.ToDouble(numBuilder);
             listNumbers.Add(num);
             numBuilder = "";
-            op = '-';
+
 
             if (!btnEqualClicked)
             {
                 if (btnSubClicked)
                 {
+                    op = '-';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
 
                     txtCalc.Text = calculate.Solve(listNumbers, "btnSubClicked").ToString();
+
+                    // WRITE TO TEXT FILE
+                    DataStream toWrite = new DataStream();
+                    toWrite.FileName = "Calculator";
+                    toWrite.MsgBoxTitle = "Calculator";
+                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                    toWrite.Description = "";
+                    toWrite.WriteFile();
+
                     btnSubClicked = false;
                 }
                 else if (btnMulClicked)
                 {
+                    op = '*';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
 
                     txtCalc.Text = calculate.Solve(listNumbers, "btnMulClicked").ToString();
+
+                    // WRITE TO TEXT FILE
+                    DataStream toWrite = new DataStream();
+                    toWrite.FileName = "Calculator";
+                    toWrite.MsgBoxTitle = "Calculator";
+                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                    toWrite.Description = "";
+                    toWrite.WriteFile();
+
                     btnMulClicked = false;
                 }
                 else if (btnDivClicked)
                 {
+                    op = '/';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
 
                     txtCalc.Text = calculate.Solve(listNumbers, "btnDivClicked").ToString();
+
+                    // WRITE TO TEXT FILE
+                    DataStream toWrite = new DataStream();
+                    toWrite.FileName = "Calculator";
+                    toWrite.MsgBoxTitle = "Calculator";
+                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                    toWrite.Description = "";
+                    toWrite.WriteFile();
+
                     btnDivClicked = false;
                 }
                 else if (btnAddClicked)
                 {
+                    op = '+';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
 
                     txtCalc.Text = calculate.Solve(listNumbers, "btnAddClicked").ToString();
+
+                    // WRITE TO TEXT FILE
+                    DataStream toWrite = new DataStream();
+                    toWrite.FileName = "Calculator";
+                    toWrite.MsgBoxTitle = "Calculator";
+                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                    toWrite.Description = "";
+                    toWrite.WriteFile();
+
                     btnAddClicked = false;
                 }
             }
@@ -215,40 +296,80 @@ namespace WinFormProject
             double num = Convert.ToDouble(numBuilder);
             listNumbers.Add(num);
             numBuilder = "";
-            op = '*';
+
 
             if (!btnEqualClicked)
             {
                 if (btnSubClicked)
                 {
+                    op = '-';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
 
                     txtCalc.Text = calculate.Solve(listNumbers, "btnSubClicked").ToString();
+
+                    // WRITE TO TEXT FILE
+                    DataStream toWrite = new DataStream();
+                    toWrite.FileName = "Calculator";
+                    toWrite.MsgBoxTitle = "Calculator";
+                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                    toWrite.Description = "";
+                    toWrite.WriteFile();
+
                     btnSubClicked = false;
                 }
                 else if (btnMulClicked)
                 {
+                    op = '*';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
 
                     txtCalc.Text = calculate.Solve(listNumbers, "btnMulClicked").ToString();
+
+                    // WRITE TO TEXT FILE
+                    DataStream toWrite = new DataStream();
+                    toWrite.FileName = "Calculator";
+                    toWrite.MsgBoxTitle = "Calculator";
+                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                    toWrite.Description = "";
+                    toWrite.WriteFile();
+
                     btnMulClicked = false;
                 }
                 else if (btnDivClicked)
                 {
+                    op = '/';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
 
                     txtCalc.Text = calculate.Solve(listNumbers, "btnDivClicked").ToString();
+
+                    // WRITE TO TEXT FILE
+                    DataStream toWrite = new DataStream();
+                    toWrite.FileName = "Calculator";
+                    toWrite.MsgBoxTitle = "Calculator";
+                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                    toWrite.Description = "";
+                    toWrite.WriteFile();
+
                     btnDivClicked = false;
                 }
                 else if (btnAddClicked)
                 {
+                    op = '+';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
 
                     txtCalc.Text = calculate.Solve(listNumbers, "btnAddClicked").ToString();
+
+                    // WRITE TO TEXT FILE
+                    DataStream toWrite = new DataStream();
+                    toWrite.FileName = "Calculator";
+                    toWrite.MsgBoxTitle = "Calculator";
+                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                    toWrite.Description = "";
+                    toWrite.WriteFile();
+
                     btnAddClicked = false;
                 }
             }
@@ -267,40 +388,80 @@ namespace WinFormProject
             double num = Convert.ToDouble(numBuilder);
             listNumbers.Add(num);
             numBuilder = "";
-            op = '/';
+
 
             if (!btnEqualClicked)
             {
                 if (btnSubClicked)
                 {
+                    op = '-';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
 
                     txtCalc.Text = calculate.Solve(listNumbers, "btnSubClicked").ToString();
+
+                    // WRITE TO TEXT FILE
+                    DataStream toWrite = new DataStream();
+                    toWrite.FileName = "Calculator";
+                    toWrite.MsgBoxTitle = "Calculator";
+                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                    toWrite.Description = "";
+                    toWrite.WriteFile();
+
                     btnSubClicked = false;
                 }
                 else if (btnMulClicked)
                 {
+                    op = '*';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
 
                     txtCalc.Text = calculate.Solve(listNumbers, "btnMulClicked").ToString();
+
+                    // WRITE TO TEXT FILE
+                    DataStream toWrite = new DataStream();
+                    toWrite.FileName = "Calculator";
+                    toWrite.MsgBoxTitle = "Calculator";
+                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                    toWrite.Description = "";
+                    toWrite.WriteFile();
+
                     btnMulClicked = false;
                 }
                 else if (btnDivClicked)
                 {
+                    op = '/';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
 
                     txtCalc.Text = calculate.Solve(listNumbers, "btnDivClicked").ToString();
+
+                    // WRITE TO TEXT FILE
+                    DataStream toWrite = new DataStream();
+                    toWrite.FileName = "Calculator";
+                    toWrite.MsgBoxTitle = "Calculator";
+                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                    toWrite.Description = "";
+                    toWrite.WriteFile();
+
                     btnDivClicked = false;
                 }
                 else if (btnAddClicked)
                 {
+                    op = '+';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
 
                     txtCalc.Text = calculate.Solve(listNumbers, "btnAddClicked").ToString();
+
+                    // WRITE TO TEXT FILE
+                    DataStream toWrite = new DataStream();
+                    toWrite.FileName = "Calculator";
+                    toWrite.MsgBoxTitle = "Calculator";
+                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                    toWrite.Description = "";
+                    toWrite.WriteFile();
+
                     btnAddClicked = false;
                 }
             }
@@ -319,13 +480,22 @@ namespace WinFormProject
             double num = Convert.ToDouble(numBuilder);
             listNumbers.Add(num);
             double temp = num;
-            op = '=';
 
             if (btnAddClicked)
             {
+                op = '+';
                 calculate.Num1 = listNumbers[0];
                 calculate.Num2 = listNumbers[1];
                 res = calculate.Add();
+
+                // WRITE TO TEXT FILE
+                DataStream toWrite = new DataStream();
+                toWrite.FileName = "Calculator";
+                toWrite.MsgBoxTitle = "Calculator";
+                toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                toWrite.Description = "";
+                toWrite.WriteFile();
+
                 txtCalc.Text = res.ToString();
 
                 listNumbers.Clear();
@@ -334,9 +504,19 @@ namespace WinFormProject
             }
             else if (btnSubClicked)
             {
+                op = '-';
                 calculate.Num1 = listNumbers[0];
                 calculate.Num2 = listNumbers[1];
                 res = calculate.Sub();
+
+                // WRITE TO TEXT FILE
+                DataStream toWrite = new DataStream();
+                toWrite.FileName = "Calculator";
+                toWrite.MsgBoxTitle = "Calculator";
+                toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                toWrite.Description = "";
+                toWrite.WriteFile();
+
                 txtCalc.Text = res.ToString();
 
                 listNumbers.Clear();
@@ -345,9 +525,19 @@ namespace WinFormProject
             }
             else if (btnMulClicked)
             {
+                op = '*';
                 calculate.Num1 = listNumbers[0];
                 calculate.Num2 = listNumbers[1];
                 res = calculate.Mul();
+
+                // WRITE TO TEXT FILE
+                DataStream toWrite = new DataStream();
+                toWrite.FileName = "Calculator";
+                toWrite.MsgBoxTitle = "Calculator";
+                toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                toWrite.Description = "";
+                toWrite.WriteFile();
+
                 txtCalc.Text = res.ToString();
 
                 listNumbers.Clear();
@@ -356,9 +546,19 @@ namespace WinFormProject
             }
             else if (btnDivClicked)
             {
+                op = '/';
                 calculate.Num1 = listNumbers[0];
                 calculate.Num2 = listNumbers[1];
                 res = calculate.Div();
+
+                // WRITE TO TEXT FILE
+                DataStream toWrite = new DataStream();
+                toWrite.FileName = "Calculator";
+                toWrite.MsgBoxTitle = "Calculator";
+                toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
+                toWrite.Description = "";
+                toWrite.WriteFile();
+
                 txtCalc.Text = res.ToString();
 
                 listNumbers.Clear();
@@ -367,7 +567,6 @@ namespace WinFormProject
             }
 
             btnEqualClicked = true;
-
         }
     }
 }
