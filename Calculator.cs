@@ -89,41 +89,5 @@ namespace WinFormProject
             return res;
         }
 
-
-        //public double Equal(List<double> listNumbers, string btn, double temp)
-        //{
-        //    double res = 0;
-
-        //    if (btn == "btnSubClicked")
-        //    {
-        //        res = Sub();
-        //        listNumbers.Clear();
-        //        listNumbers.Add(res);
-        //        listNumbers.Add(temp);
-        //    }
-        //    else if (btn == "btnAddClicked")
-        //    {
-        //        res = Add();
-        //        listNumbers.Clear();
-        //        listNumbers.Add(res);
-        //        listNumbers.Add(temp);
-        //    }
-        //    else if (btn == "btnMulClicked")
-        //    {
-        //        res = Mul();
-        //        listNumbers.Clear();
-        //        listNumbers.Add(res);
-        //        listNumbers.Add(temp);
-        //    }
-        //    else if (btn == "btnDivClicked")
-        //    {
-        //        res = Div();
-        //        listNumbers.Clear();
-        //        listNumbers.Add(res);
-        //        listNumbers.Add(temp);
-        //    }
-
-        //    return res;
-        //}
     }
 }

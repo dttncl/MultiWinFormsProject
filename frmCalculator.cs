@@ -22,12 +22,14 @@ namespace WinFormProject
 
         private void frmCalculator_Load(object sender, EventArgs e)
         {
-
+            toWrite.MsgBoxTitle = "Calculator";
         }
 
         // initiate the constructor
         Calculator calculate = new Calculator();
         private string numBuilder = "";
+
+        DataStream toWrite = new DataStream();
 
         public List<double> listNumbers = new List<double>();
 
@@ -113,78 +115,57 @@ namespace WinFormProject
             listNumbers.Add(num);
             numBuilder = "";
             
-
             if (!btnEqualClicked)
             {
                 if (btnSubClicked)
                 {
-                    op = '-';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-
-                    txtCalc.Text = calculate.Solve(listNumbers, "btnSubClicked").ToString();
+                    res = calculate.Solve(listNumbers, "btnSubClicked");
+                    txtCalc.Text = res.ToString();
 
                     // WRITE TO TEXT FILE
-                    DataStream toWrite = new DataStream();
-                    toWrite.FileName = "Calculator";
-                    toWrite.MsgBoxTitle = "Calculator";
-                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                    toWrite.Description = "";
-                    toWrite.WriteFile();
+                    toWrite.Output = $"{calculate.Num1} - {calculate.Num2} = {res}";
+                    toWrite.WriteCalcFile();
 
                     btnSubClicked = false;
                 }
                 else if (btnMulClicked)
                 {
-                    op = '*';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-
-                    txtCalc.Text = calculate.Solve(listNumbers, "btnMulClicked").ToString();
+                    res = calculate.Solve(listNumbers, "btnMulClicked");
+                    txtCalc.Text = res.ToString();
 
                     // WRITE TO TEXT FILE
-                    DataStream toWrite = new DataStream();
-                    toWrite.FileName = "Calculator";
-                    toWrite.MsgBoxTitle = "Calculator";
-                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                    toWrite.Description = "";
-                    toWrite.WriteFile();
+                    toWrite.Output = $"{calculate.Num1} * {calculate.Num2} = {res}";
+                    toWrite.WriteCalcFile();
 
                     btnMulClicked = false;
                 }
                 else if (btnDivClicked)
                 {
-                    op = '/';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-
-                    txtCalc.Text = calculate.Solve(listNumbers, "btnDivClicked").ToString();
+                    res = calculate.Solve(listNumbers, "btnDivClicked");
+                    txtCalc.Text = res.ToString();
 
                     // WRITE TO TEXT FILE
-                    DataStream toWrite = new DataStream();
-                    toWrite.FileName = "Calculator";
-                    toWrite.MsgBoxTitle = "Calculator";
-                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                    toWrite.Description = "";
-                    toWrite.WriteFile();
+                    toWrite.Output = $"{calculate.Num1} / {calculate.Num2} = {res}";
+                    toWrite.WriteCalcFile();
 
                     btnDivClicked = false;
                 }
                 else if (btnAddClicked)
                 {
-                    op = '+';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-
-                    txtCalc.Text = calculate.Solve(listNumbers, "btnAddClicked").ToString();
+                    res = calculate.Solve(listNumbers, "btnAddClicked");
+                    txtCalc.Text = res.ToString();
 
                     // WRITE TO TEXT FILE
-                    DataStream toWrite = new DataStream();
-                    toWrite.FileName = "Calculator";
-                    toWrite.MsgBoxTitle = "Calculator";
-                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                    toWrite.Description = "";
-                    toWrite.WriteFile();
+                    toWrite.Output = $"{calculate.Num1} + {calculate.Num2} = {res}";
+                    toWrite.WriteCalcFile();
 
                     btnAddClicked = false;
                 }
@@ -210,73 +191,53 @@ namespace WinFormProject
             {
                 if (btnSubClicked)
                 {
-                    op = '-';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-
-                    txtCalc.Text = calculate.Solve(listNumbers, "btnSubClicked").ToString();
+                    res = calculate.Solve(listNumbers, "btnSubClicked");
+                    txtCalc.Text = res.ToString();
 
                     // WRITE TO TEXT FILE
-                    DataStream toWrite = new DataStream();
-                    toWrite.FileName = "Calculator";
-                    toWrite.MsgBoxTitle = "Calculator";
-                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                    toWrite.Description = "";
-                    toWrite.WriteFile();
+                    toWrite.Output = $"{calculate.Num1} - {calculate.Num2} = {res}";
+                    toWrite.WriteCalcFile();
 
                     btnSubClicked = false;
                 }
                 else if (btnMulClicked)
                 {
-                    op = '*';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-
-                    txtCalc.Text = calculate.Solve(listNumbers, "btnMulClicked").ToString();
+                    res = calculate.Solve(listNumbers, "btnMulClicked");
+                    txtCalc.Text = res.ToString();
 
                     // WRITE TO TEXT FILE
-                    DataStream toWrite = new DataStream();
-                    toWrite.FileName = "Calculator";
-                    toWrite.MsgBoxTitle = "Calculator";
-                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                    toWrite.Description = "";
-                    toWrite.WriteFile();
+                    toWrite.Output = $"{calculate.Num1} * {calculate.Num2} = {res}";
+                    toWrite.WriteCalcFile();
 
                     btnMulClicked = false;
                 }
                 else if (btnDivClicked)
                 {
-                    op = '/';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-
-                    txtCalc.Text = calculate.Solve(listNumbers, "btnDivClicked").ToString();
+                    res = calculate.Solve(listNumbers, "btnDivClicked");
+                    txtCalc.Text = res.ToString();
 
                     // WRITE TO TEXT FILE
-                    DataStream toWrite = new DataStream();
-                    toWrite.FileName = "Calculator";
-                    toWrite.MsgBoxTitle = "Calculator";
-                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                    toWrite.Description = "";
-                    toWrite.WriteFile();
+                    toWrite.Output = $"{calculate.Num1} / {calculate.Num2} = {res}";
+                    toWrite.WriteCalcFile();
 
                     btnDivClicked = false;
                 }
                 else if (btnAddClicked)
                 {
-                    op = '+';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-
-                    txtCalc.Text = calculate.Solve(listNumbers, "btnAddClicked").ToString();
+                    res = calculate.Solve(listNumbers, "btnAddClicked");
+                    txtCalc.Text = res.ToString();
 
                     // WRITE TO TEXT FILE
-                    DataStream toWrite = new DataStream();
-                    toWrite.FileName = "Calculator";
-                    toWrite.MsgBoxTitle = "Calculator";
-                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                    toWrite.Description = "";
-                    toWrite.WriteFile();
+                    toWrite.Output = $"{calculate.Num1} + {calculate.Num2} = {res}";
+                    toWrite.WriteCalcFile();
 
                     btnAddClicked = false;
                 }
@@ -302,73 +263,53 @@ namespace WinFormProject
             {
                 if (btnSubClicked)
                 {
-                    op = '-';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-
-                    txtCalc.Text = calculate.Solve(listNumbers, "btnSubClicked").ToString();
+                    res = calculate.Solve(listNumbers, "btnSubClicked");
+                    txtCalc.Text = res.ToString();
 
                     // WRITE TO TEXT FILE
-                    DataStream toWrite = new DataStream();
-                    toWrite.FileName = "Calculator";
-                    toWrite.MsgBoxTitle = "Calculator";
-                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                    toWrite.Description = "";
-                    toWrite.WriteFile();
+                    toWrite.Output = $"{calculate.Num1} - {calculate.Num2} = {res}";
+                    toWrite.WriteCalcFile();
 
                     btnSubClicked = false;
                 }
                 else if (btnMulClicked)
                 {
-                    op = '*';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-
-                    txtCalc.Text = calculate.Solve(listNumbers, "btnMulClicked").ToString();
+                    res = calculate.Solve(listNumbers, "btnMulClicked");
+                    txtCalc.Text = res.ToString();
 
                     // WRITE TO TEXT FILE
-                    DataStream toWrite = new DataStream();
-                    toWrite.FileName = "Calculator";
-                    toWrite.MsgBoxTitle = "Calculator";
-                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                    toWrite.Description = "";
-                    toWrite.WriteFile();
+                    toWrite.Output = $"{calculate.Num1} * {calculate.Num2} = {res}";
+                    toWrite.WriteCalcFile();
 
                     btnMulClicked = false;
                 }
                 else if (btnDivClicked)
                 {
-                    op = '/';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-
-                    txtCalc.Text = calculate.Solve(listNumbers, "btnDivClicked").ToString();
+                    res = calculate.Solve(listNumbers, "btnDivClicked");
+                    txtCalc.Text = res.ToString();
 
                     // WRITE TO TEXT FILE
-                    DataStream toWrite = new DataStream();
-                    toWrite.FileName = "Calculator";
-                    toWrite.MsgBoxTitle = "Calculator";
-                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                    toWrite.Description = "";
-                    toWrite.WriteFile();
+                    toWrite.Output = $"{calculate.Num1} / {calculate.Num2} = {res}";
+                    toWrite.WriteCalcFile();
 
                     btnDivClicked = false;
                 }
                 else if (btnAddClicked)
                 {
-                    op = '+';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-
-                    txtCalc.Text = calculate.Solve(listNumbers, "btnAddClicked").ToString();
+                    res = calculate.Solve(listNumbers, "btnAddClicked");
+                    txtCalc.Text = res.ToString();
 
                     // WRITE TO TEXT FILE
-                    DataStream toWrite = new DataStream();
-                    toWrite.FileName = "Calculator";
-                    toWrite.MsgBoxTitle = "Calculator";
-                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                    toWrite.Description = "";
-                    toWrite.WriteFile();
+                    toWrite.Output = $"{calculate.Num1} + {calculate.Num2} = {res}";
+                    toWrite.WriteCalcFile();
 
                     btnAddClicked = false;
                 }
@@ -394,73 +335,53 @@ namespace WinFormProject
             {
                 if (btnSubClicked)
                 {
-                    op = '-';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-
-                    txtCalc.Text = calculate.Solve(listNumbers, "btnSubClicked").ToString();
+                    res = calculate.Solve(listNumbers, "btnSubClicked");
+                    txtCalc.Text = res.ToString();
 
                     // WRITE TO TEXT FILE
-                    DataStream toWrite = new DataStream();
-                    toWrite.FileName = "Calculator";
-                    toWrite.MsgBoxTitle = "Calculator";
-                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                    toWrite.Description = "";
-                    toWrite.WriteFile();
+                    toWrite.Output = $"{calculate.Num1} - {calculate.Num2} = {res}";
+                    toWrite.WriteCalcFile();
 
                     btnSubClicked = false;
                 }
                 else if (btnMulClicked)
                 {
-                    op = '*';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-
-                    txtCalc.Text = calculate.Solve(listNumbers, "btnMulClicked").ToString();
+                    res = calculate.Solve(listNumbers, "btnMulClicked");
+                    txtCalc.Text = res.ToString();
 
                     // WRITE TO TEXT FILE
-                    DataStream toWrite = new DataStream();
-                    toWrite.FileName = "Calculator";
-                    toWrite.MsgBoxTitle = "Calculator";
-                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                    toWrite.Description = "";
-                    toWrite.WriteFile();
+                    toWrite.Output = $"{calculate.Num1} * {calculate.Num2} = {res}";
+                    toWrite.WriteCalcFile();
 
                     btnMulClicked = false;
                 }
                 else if (btnDivClicked)
                 {
-                    op = '/';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-
-                    txtCalc.Text = calculate.Solve(listNumbers, "btnDivClicked").ToString();
+                    res = calculate.Solve(listNumbers, "btnDivClicked");
+                    txtCalc.Text = res.ToString();
 
                     // WRITE TO TEXT FILE
-                    DataStream toWrite = new DataStream();
-                    toWrite.FileName = "Calculator";
-                    toWrite.MsgBoxTitle = "Calculator";
-                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                    toWrite.Description = "";
-                    toWrite.WriteFile();
+                    toWrite.Output = $"{calculate.Num1} / {calculate.Num2} = {res}";
+                    toWrite.WriteCalcFile();
 
                     btnDivClicked = false;
                 }
                 else if (btnAddClicked)
                 {
-                    op = '+';
                     calculate.Num1 = listNumbers[0];
                     calculate.Num2 = listNumbers[1];
-
-                    txtCalc.Text = calculate.Solve(listNumbers, "btnAddClicked").ToString();
+                    res = calculate.Solve(listNumbers, "btnAddClicked");
+                    txtCalc.Text = res.ToString();
 
                     // WRITE TO TEXT FILE
-                    DataStream toWrite = new DataStream();
-                    toWrite.FileName = "Calculator";
-                    toWrite.MsgBoxTitle = "Calculator";
-                    toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                    toWrite.Description = "";
-                    toWrite.WriteFile();
+                    toWrite.Output = $"{calculate.Num1} + {calculate.Num2} = {res}";
+                    toWrite.WriteCalcFile();
 
                     btnAddClicked = false;
                 }
@@ -483,20 +404,15 @@ namespace WinFormProject
 
             if (btnAddClicked)
             {
-                op = '+';
                 calculate.Num1 = listNumbers[0];
                 calculate.Num2 = listNumbers[1];
                 res = calculate.Add();
 
-                // WRITE TO TEXT FILE
-                DataStream toWrite = new DataStream();
-                toWrite.FileName = "Calculator";
-                toWrite.MsgBoxTitle = "Calculator";
-                toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                toWrite.Description = "";
-                toWrite.WriteFile();
-
                 txtCalc.Text = res.ToString();
+
+                // WRITE TO TEXT FILE
+                toWrite.Output = $"{calculate.Num1} + {calculate.Num2} = {res}";
+                toWrite.WriteCalcFile();
 
                 listNumbers.Clear();
                 listNumbers.Add(res);
@@ -504,20 +420,15 @@ namespace WinFormProject
             }
             else if (btnSubClicked)
             {
-                op = '-';
                 calculate.Num1 = listNumbers[0];
                 calculate.Num2 = listNumbers[1];
                 res = calculate.Sub();
 
-                // WRITE TO TEXT FILE
-                DataStream toWrite = new DataStream();
-                toWrite.FileName = "Calculator";
-                toWrite.MsgBoxTitle = "Calculator";
-                toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                toWrite.Description = "";
-                toWrite.WriteFile();
-
                 txtCalc.Text = res.ToString();
+
+                // WRITE TO TEXT FILE
+                toWrite.Output = $"{calculate.Num1} - {calculate.Num2} = {res}";
+                toWrite.WriteCalcFile();
 
                 listNumbers.Clear();
                 listNumbers.Add(res);
@@ -525,20 +436,15 @@ namespace WinFormProject
             }
             else if (btnMulClicked)
             {
-                op = '*';
                 calculate.Num1 = listNumbers[0];
                 calculate.Num2 = listNumbers[1];
                 res = calculate.Mul();
 
-                // WRITE TO TEXT FILE
-                DataStream toWrite = new DataStream();
-                toWrite.FileName = "Calculator";
-                toWrite.MsgBoxTitle = "Calculator";
-                toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                toWrite.Description = "";
-                toWrite.WriteFile();
-
                 txtCalc.Text = res.ToString();
+
+                // WRITE TO TEXT FILE
+                toWrite.Output = $"{calculate.Num1} * {calculate.Num2} = {res}";
+                toWrite.WriteCalcFile();
 
                 listNumbers.Clear();
                 listNumbers.Add(res);
@@ -546,20 +452,15 @@ namespace WinFormProject
             }
             else if (btnDivClicked)
             {
-                op = '/';
                 calculate.Num1 = listNumbers[0];
                 calculate.Num2 = listNumbers[1];
                 res = calculate.Div();
 
-                // WRITE TO TEXT FILE
-                DataStream toWrite = new DataStream();
-                toWrite.FileName = "Calculator";
-                toWrite.MsgBoxTitle = "Calculator";
-                toWrite.Output = $"{calculate.Num1} {op} {calculate.Num2} = {res}";
-                toWrite.Description = "";
-                toWrite.WriteFile();
-
                 txtCalc.Text = res.ToString();
+
+                // WRITE TO TEXT FILE
+                toWrite.Output = $"{calculate.Num1} / {calculate.Num2} = {res}";
+                toWrite.WriteCalcFile();
 
                 listNumbers.Clear();
                 listNumbers.Add(res);
