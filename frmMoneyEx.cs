@@ -19,7 +19,7 @@ namespace WinFormProject
 
         }
 
-        DateTime openFormTime;
+        DateTime openFormTime, closeFormTime;
         string currencyFrom, currencyTo;
 
         private void btnMEx_Click(object sender, EventArgs e)
@@ -123,7 +123,7 @@ namespace WinFormProject
 
         private void btnMExExit_Click(object sender, EventArgs e)
         {
-            DateTime closeFormTime = DateTime.Now;
+            closeFormTime = DateTime.Now;
             TimeSpan totRunTime = closeFormTime.Subtract(openFormTime);
 
             if (MessageBox.Show("Do you want to close this window?\n" +

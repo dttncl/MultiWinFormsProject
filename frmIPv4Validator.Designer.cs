@@ -79,6 +79,7 @@
             this.btnIPValExit.TabIndex = 14;
             this.btnIPValExit.Text = "E&xit";
             this.btnIPValExit.UseVisualStyleBackColor = true;
+            this.btnIPValExit.Click += new System.EventHandler(this.btnIPValExit_Click);
             // 
             // btnIPValReset
             // 
@@ -88,6 +89,7 @@
             this.btnIPValReset.TabIndex = 13;
             this.btnIPValReset.Text = "Reset";
             this.btnIPValReset.UseVisualStyleBackColor = true;
+            this.btnIPValReset.Click += new System.EventHandler(this.btnIPValReset_Click);
             // 
             // btnIPVal
             // 
