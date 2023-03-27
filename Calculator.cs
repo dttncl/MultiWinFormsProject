@@ -12,6 +12,7 @@ namespace WinFormProject
         // fields
         private double num1;
         private double num2;
+
         // constructor
         public Calculator()
         {
@@ -23,6 +24,7 @@ namespace WinFormProject
             Num1 = num1;
             Num2 = num2;
         }
+
         // properties
         public double Num1
         {
@@ -57,6 +59,7 @@ namespace WinFormProject
             return Num1 / Num2;
         }
 
+        // function to solve using appropriate operation
         public double Solve (List<double> listNumbers,string btn)
         {
             double res = 0;

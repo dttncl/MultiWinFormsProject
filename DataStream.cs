@@ -165,6 +165,7 @@ namespace WinFormProject
             fs.Close();
         }
 
+        // function write to calculator file
         public void WriteCalcFile()
         {
             FileName = "Calculator";
