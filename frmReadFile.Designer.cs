@@ -30,33 +30,44 @@
         {
             this.rtfReadBox = new System.Windows.Forms.RichTextBox();
             this.lblReadTitle = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // rtfReadBox
             // 
-            this.rtfReadBox.Location = new System.Drawing.Point(36, 67);
+            this.rtfReadBox.Location = new System.Drawing.Point(22, 52);
             this.rtfReadBox.Name = "rtfReadBox";
             this.rtfReadBox.ReadOnly = true;
             this.rtfReadBox.Size = new System.Drawing.Size(508, 326);
             this.rtfReadBox.TabIndex = 0;
             this.rtfReadBox.Text = "";
-            this.rtfReadBox.TextChanged += new System.EventHandler(this.rtfReadBox_TextChanged);
             // 
             // lblReadTitle
             // 
             this.lblReadTitle.AutoSize = true;
             this.lblReadTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReadTitle.Location = new System.Drawing.Point(31, 24);
+            this.lblReadTitle.Location = new System.Drawing.Point(21, 13);
             this.lblReadTitle.Name = "lblReadTitle";
             this.lblReadTitle.Size = new System.Drawing.Size(71, 25);
             this.lblReadTitle.TabIndex = 1;
             this.lblReadTitle.Text = "Output";
             // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(419, 395);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(111, 38);
+            this.btnExit.TabIndex = 4;
+            this.btnExit.Text = "E&xit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.button3_Click);
+            // 
             // frmReadFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(581, 431);
+            this.ClientSize = new System.Drawing.Size(553, 452);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblReadTitle);
             this.Controls.Add(this.rtfReadBox);
             this.Name = "frmReadFile";
@@ -71,5 +82,6 @@
 
         private System.Windows.Forms.RichTextBox rtfReadBox;
         private System.Windows.Forms.Label lblReadTitle;
+        private System.Windows.Forms.Button btnExit;
     }
 }

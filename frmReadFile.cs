@@ -21,15 +21,17 @@ namespace WinFormProject
         public string fileOutput { get; set; }
         public string frmTitle { get; set; }
 
-        private void rtfReadBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmReadFile_Load(object sender, EventArgs e)
         {
             rtfReadBox.Text = fileOutput;
             lblReadTitle.Text = frmTitle;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
     }
 }
