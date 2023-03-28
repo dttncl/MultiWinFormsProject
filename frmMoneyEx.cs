@@ -105,11 +105,13 @@ namespace WinFormProject
         {
             // READ TEXT FILE
             DataStream toRead = new DataStream();
-
             toRead.FileName = "MoneyConv";
             toRead.MsgBoxTitle = "Money Conversion";
 
-            toRead.ReadFile();
+            frmReadFile readDisplay = new frmReadFile();
+            readDisplay.fileOutput = toRead.ReadFile();
+            readDisplay.frmTitle = toRead.MsgBoxTitle;
+            readDisplay.Show();
         }
 
         private void frmMoneyEx_Load(object sender, EventArgs e)

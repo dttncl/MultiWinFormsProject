@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,8 @@ namespace WinFormProject
             InitializeComponent();
         }
 
-        public string strOutput { get; set; }
+        public string fileOutput { get; set; }
+        public string frmTitle { get; set; }
 
         private void rtfReadBox_TextChanged(object sender, EventArgs e)
         {
@@ -26,7 +28,8 @@ namespace WinFormProject
 
         private void frmReadFile_Load(object sender, EventArgs e)
         {
-            rtfReadBox.Text = strOutput;
+            rtfReadBox.Text = fileOutput;
+            lblReadTitle.Text = frmTitle;
         }
     }
 }

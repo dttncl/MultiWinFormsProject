@@ -124,12 +124,15 @@ namespace WinFormProject
 
         private void btnTConvRead_Click(object sender, EventArgs e)
         {
+            // READ TEXT FILE
             DataStream toRead = new DataStream();
-
             toRead.FileName = "TempConv";
             toRead.MsgBoxTitle = "Temperature Conversion";
 
-            toRead.ReadFile();
+            frmReadFile readDisplay = new frmReadFile();
+            readDisplay.fileOutput = toRead.ReadFile();
+            readDisplay.frmTitle = toRead.MsgBoxTitle;
+            readDisplay.Show();
         }
 
         private void btnTConvExit_Click(object sender, EventArgs e)

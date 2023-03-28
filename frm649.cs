@@ -100,17 +100,15 @@ namespace WinFormProject
 
         private void btnL649Read_Click(object sender, EventArgs e)
         {
+            // READ TEXT FILE
+            DataStream toRead = new DataStream();
+            toRead.FileName = "LottoNbrs";
+            toRead.MsgBoxTitle = "Lotto649";
+
             frmReadFile readDisplay = new frmReadFile();
-            readDisplay.strOutput = "Hello";
+            readDisplay.fileOutput = toRead.ReadFile();
+            readDisplay.frmTitle = toRead.MsgBoxTitle;
             readDisplay.Show();
-
-        //    // READ TEXT FILE
-        //    DataStream toRead = new DataStream();
-
-        //    toRead.FileName = "LottoNbrs";
-        //    toRead.MsgBoxTitle = "Lotto649";
-
-        //    toRead.ReadFile();
         }
 
         private void frm649_Load(object sender, EventArgs e)

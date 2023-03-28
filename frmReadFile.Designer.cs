@@ -45,9 +45,10 @@
             // lblReadTitle
             // 
             this.lblReadTitle.AutoSize = true;
-            this.lblReadTitle.Location = new System.Drawing.Point(32, 20);
+            this.lblReadTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReadTitle.Location = new System.Drawing.Point(31, 24);
             this.lblReadTitle.Name = "lblReadTitle";
-            this.lblReadTitle.Size = new System.Drawing.Size(58, 20);
+            this.lblReadTitle.Size = new System.Drawing.Size(71, 25);
             this.lblReadTitle.TabIndex = 1;
             this.lblReadTitle.Text = "Output";
             // 
@@ -59,7 +60,7 @@
             this.Controls.Add(this.lblReadTitle);
             this.Controls.Add(this.rtfReadBox);
             this.Name = "frmReadFile";
-            this.Text = "frmReadFile";
+            this.Text = "Read Form";
             this.Load += new System.EventHandler(this.frmReadFile_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

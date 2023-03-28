@@ -127,7 +127,7 @@ namespace WinFormProject
 
 
         // function to read file
-        public void ReadFile()
+        public string ReadFile()
         {
             FileStream fs = null;
             string path = directory + FileName;
@@ -171,18 +171,15 @@ namespace WinFormProject
             }
 
             // check if file is empty
-            if (line == "")
+            if (line.Length == 0)
             {
                 MessageBox.Show("File Empty.", MsgBoxTitle);
-            }
-            else
-            {
-                MessageBox.Show(line, MsgBoxTitle);
-                
             }
 
             textFile.Close();
             fs.Close();
+
+            return line;
         }
 
         // function write to calculator file

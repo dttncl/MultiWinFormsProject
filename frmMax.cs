@@ -106,12 +106,13 @@ namespace WinFormProject
         {
             // READ TEXT FILE
             DataStream toRead = new DataStream();
-
             toRead.FileName = "LottoNbrs";
             toRead.MsgBoxTitle = "LottoMax";
 
-            toRead.ReadFile();
-            
+            frmReadFile readDisplay = new frmReadFile();
+            readDisplay.fileOutput = toRead.ReadFile();
+            readDisplay.frmTitle = toRead.MsgBoxTitle;
+            readDisplay.Show();
         }
     }
 }
