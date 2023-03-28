@@ -46,7 +46,7 @@ namespace WinFormProject
             // use temp in celsius for the evaluation
             if(unitFrom != 'C')
             {
-                Temp = Math.Round((Temp - 32) * 5 / 9, 1);
+                Temp = ConvertToCelcius();
             }
 
             string desc = "";

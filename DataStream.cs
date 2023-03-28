@@ -31,7 +31,6 @@ namespace WinFormProject
             MsgBoxTitle = msgBoxTitle;
             Output = output;
             Description = description;
-
         }
 
         // property
@@ -60,7 +59,7 @@ namespace WinFormProject
         }
 
         // methods
-        // function to create directory
+        // function to check and create directory
         public void CreateDir ()
         {
             if(!Directory.Exists(directory))
