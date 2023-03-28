@@ -209,5 +209,50 @@ namespace WinFormProject
             textFile.Close();
             fs.Close();
         }
+
+        // function write to binary
+        public void WriteBinFile ()
+        {
+            FileStream fs = null;
+            string path = directory + FileName;
+
+            // verifyiung if the file path exists
+            try
+            {
+                fs = new FileStream(path, FileMode.Open);
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show(FileName + " not found.\nCreating...", "New File Created");
+                File.Create(path).Close();
+            }
+            catch (DirectoryNotFoundException)
+            {
+                MessageBox.Show(directory + " not found.", "Directory not existing.");
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Error! " + ex.Message, "Exception IO");
+            }
+            finally
+            {
+                if (fs != null)
+                {
+                    fs.Close();
+                }
+            }
+
+            fs = new FileStream(path, FileMode.Append, FileAccess.Write);
+
+            BinaryWriter binFile = new BinaryWriter(fs);
+            
+            binFile.Write(Output);
+            binFile.Write(DateTime.Now.ToString());
+
+            MessageBox.Show($"Saved Changes to {FileName}!", "Saved");
+
+            binFile.Close();
+        }
+
     }
 }

@@ -37,6 +37,15 @@ namespace WinFormProject
             if (Regex.IsMatch(ipAddress, @"^(25[0-5]|2[0-4]\d|[0-1]?\d?\d)(\.(25[0-5]|2[0-4]\d|[0-1]?\d?\d)){3}$"))
             {
                 MessageBox.Show($"{ipAddress}\nThis IP is correct","Valid IP");
+
+                // WRITE TO TEXT FILE
+                DataStream toWrite = new DataStream();
+
+                toWrite.FileName = "BinaryIpv4";
+                toWrite.MsgBoxTitle = "IPv4 Validator";
+                toWrite.Output = ipAddress;
+
+                toWrite.WriteBinFile();
             }
             else
             {

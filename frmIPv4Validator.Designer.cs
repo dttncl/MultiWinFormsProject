@@ -69,14 +69,14 @@
             this.txtIPVal.Location = new System.Drawing.Point(210, 103);
             this.txtIPVal.Name = "txtIPVal";
             this.txtIPVal.Size = new System.Drawing.Size(273, 26);
-            this.txtIPVal.TabIndex = 3;
+            this.txtIPVal.TabIndex = 1;
             // 
             // btnIPValExit
             // 
             this.btnIPValExit.Location = new System.Drawing.Point(395, 177);
             this.btnIPValExit.Name = "btnIPValExit";
             this.btnIPValExit.Size = new System.Drawing.Size(118, 46);
-            this.btnIPValExit.TabIndex = 14;
+            this.btnIPValExit.TabIndex = 4;
             this.btnIPValExit.Text = "E&xit";
             this.btnIPValExit.UseVisualStyleBackColor = true;
             this.btnIPValExit.Click += new System.EventHandler(this.btnIPValExit_Click);
@@ -86,8 +86,8 @@
             this.btnIPValReset.Location = new System.Drawing.Point(218, 180);
             this.btnIPValReset.Name = "btnIPValReset";
             this.btnIPValReset.Size = new System.Drawing.Size(118, 43);
-            this.btnIPValReset.TabIndex = 13;
-            this.btnIPValReset.Text = "Reset";
+            this.btnIPValReset.TabIndex = 3;
+            this.btnIPValReset.Text = "&Reset";
             this.btnIPValReset.UseVisualStyleBackColor = true;
             this.btnIPValReset.Click += new System.EventHandler(this.btnIPValReset_Click);
             // 
@@ -96,8 +96,8 @@
             this.btnIPVal.Location = new System.Drawing.Point(44, 179);
             this.btnIPVal.Name = "btnIPVal";
             this.btnIPVal.Size = new System.Drawing.Size(118, 43);
-            this.btnIPVal.TabIndex = 12;
-            this.btnIPVal.Text = "Validate IP";
+            this.btnIPVal.TabIndex = 2;
+            this.btnIPVal.Text = "&Validate IP";
             this.btnIPVal.UseVisualStyleBackColor = true;
             this.btnIPVal.Click += new System.EventHandler(this.btnIPVal_Click);
             // 
@@ -114,7 +114,7 @@
             this.Controls.Add(this.lblIPValDate);
             this.Controls.Add(this.label1);
             this.Name = "frmIPv4Validator";
-            this.Text = "frmIPv4Validator";
+            this.Text = "IPv4 Validator - Bernadette";
             this.Load += new System.EventHandler(this.frmIPv4Validator_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
