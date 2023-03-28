@@ -31,28 +31,29 @@ namespace WinFormProject
 
         private void btnIPVal_Click(object sender, EventArgs e)
         {
-
             // examples: 192.168.0.10 / 192.186.000
             string ipAddress = txtIPVal.Text.Trim();
             if (Regex.IsMatch(ipAddress, @"^(25[0-5]|2[0-4]\d|[0-1]?\d?\d)(\.(25[0-5]|2[0-4]\d|[0-1]?\d?\d)){3}$"))
             {
                 MessageBox.Show($"{ipAddress}\nThis IP is correct","Valid IP");
 
-                // WRITE TO TEXT FILE
                 DataStream toWrite = new DataStream();
-
                 toWrite.FileName = "BinaryIpv4";
                 toWrite.MsgBoxTitle = "IPv4 Validator";
                 toWrite.Output = ipAddress;
 
                 toWrite.WriteBinFile();
             }
+            else if (ipAddress.Length == 0)
+            {
+                MessageBox.Show("Error! Please input an IPv4 address.", "Invalid IP");
+            }
             else
             {
                 MessageBox.Show($"{ipAddress}\n" +
                     $"The IP must have 4 bytes\n" +
                     $"Integer number between 0 to 255\n" +
-                    $"Separated by a dot (255.255.255.255)", "Error");
+                    $"Separated by a dot (255.255.255.255)", "Invalid IP");
             }
         }
 

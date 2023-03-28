@@ -60,6 +60,15 @@ namespace WinFormProject
         }
 
         // methods
+        // function to create directory
+        public void CreateDir ()
+        {
+            if(!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+        }
+
         // function write to file
         public void WriteFile()
         {
@@ -71,18 +80,19 @@ namespace WinFormProject
             {
                 fs = new FileStream(path, FileMode.Open);
             }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show(FileName + " not found.\nCreating...", "New File Created");
-                File.Create(path).Close();
-            }
             catch (DirectoryNotFoundException)
             {
-                MessageBox.Show(directory + " not found.", "Directory not existing.");
+                MessageBox.Show($"Directory: {directory} not found.\nCreating...", "Directory not existing.");
+                CreateDir();
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show($"{FileName} not found.\nCreating...", "New File Created");
             }
             catch (IOException ex)
             {
-                MessageBox.Show("Error! " + ex.Message, "Exception IO");
+                MessageBox.Show($"Error! {ex.Message}", "Exception IO");
+
             }
             finally
             {
@@ -113,23 +123,24 @@ namespace WinFormProject
             FileStream fs = null;
             string path = directory + FileName;
 
-            // verifying if the file path exists
+            // verifyiung if the file path exists
             try
             {
                 fs = new FileStream(path, FileMode.Open);
             }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show(FileName + " not found.", "File Not Found");
-
-            }
             catch (DirectoryNotFoundException)
             {
-                MessageBox.Show(directory + " not found.", "Directory not existing.");
+                MessageBox.Show($"Directory: {directory} not found.\nCreating...", "Directory not existing.");
+                CreateDir();
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show($"{FileName} not found.\nCreating...", "New File Created");
             }
             catch (IOException ex)
             {
-                MessageBox.Show("Error! " + ex.Message, "Exception IO");
+                MessageBox.Show($"Error! {ex.Message}", "Exception IO");
+
             }
             finally
             {
@@ -177,18 +188,19 @@ namespace WinFormProject
             {
                 fs = new FileStream(path, FileMode.Open);
             }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show(FileName + " not found.\nCreating...", "New File Created");
-                File.Create(path).Close();
-            }
             catch (DirectoryNotFoundException)
             {
-                MessageBox.Show(directory + " not found.", "Directory not existing.");
+                MessageBox.Show($"Directory: {directory} not found.\nCreating...", "Directory not existing.");
+                CreateDir();
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show($"{FileName} not found.\nCreating...", "New File Created");
             }
             catch (IOException ex)
             {
-                MessageBox.Show("Error! " + ex.Message, "Exception IO");
+                MessageBox.Show($"Error! {ex.Message}", "Exception IO");
+
             }
             finally
             {
@@ -221,18 +233,19 @@ namespace WinFormProject
             {
                 fs = new FileStream(path, FileMode.Open);
             }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show(FileName + " not found.\nCreating...", "New File Created");
-                File.Create(path).Close();
-            }
             catch (DirectoryNotFoundException)
             {
-                MessageBox.Show(directory + " not found.", "Directory not existing.");
+                MessageBox.Show($"Directory: {directory} not found.\nCreating...", "Directory not existing.");
+                CreateDir();
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show($"{FileName} not found.\nCreating...", "New File Created");
             }
             catch (IOException ex)
             {
-                MessageBox.Show("Error! " + ex.Message, "Exception IO");
+                MessageBox.Show($"Error! {ex.Message}", "Exception IO");
+
             }
             finally
             {
