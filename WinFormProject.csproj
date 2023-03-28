@@ -85,6 +85,12 @@
     <Compile Include="frmMoneyEx.Designer.cs">
       <DependentUpon>frmMoneyEx.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReadFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReadFile.Designer.cs">
+      <DependentUpon>frmReadFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTempConv.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMoneyEx.resx">
       <DependentUpon>frmMoneyEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReadFile.resx">
+      <DependentUpon>frmReadFile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTempConv.resx">
       <DependentUpon>frmTempConv.cs</DependentUpon>

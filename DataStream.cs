@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
@@ -18,6 +19,7 @@ namespace WinFormProject
         private string msgBoxTitle;
         private string output;
         private string description;
+        private string ext = ".txt";
 
         // constructors
         public DataStream()
@@ -36,7 +38,15 @@ namespace WinFormProject
         // property
         public string FileName
         {
-            get { return fileName + ".txt"; }
+            get 
+            {
+                if (fileName == "BinaryIpv4")
+                {
+                    ext = ".dat";
+                }
+
+                return fileName + ext;
+            }
             set { fileName = value; }
         }
 
@@ -257,9 +267,13 @@ namespace WinFormProject
             fs = new FileStream(path, FileMode.Append, FileAccess.Write);
 
             BinaryWriter binFile = new BinaryWriter(fs);
-            
-            binFile.Write(Output);
-            binFile.Write(DateTime.Now.ToString());
+            Output += DateTime.Now.ToString();
+            string[] output = Regex.Split(Output, "\\.?\\s?\\-?\\:?[B-L]?[NO]?[Q-Z]?");
+
+            foreach (string item in output)
+            {
+                binFile.Write($"{item}");
+            }
 
             MessageBox.Show($"Saved Changes to {FileName}!", "Saved");
 
