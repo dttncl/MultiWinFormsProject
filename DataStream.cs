@@ -265,13 +265,8 @@ namespace WinFormProject
 
             BinaryWriter binFile = new BinaryWriter(fs);
             Output += DateTime.Now.ToString();
-            string[] output = Regex.Split(Output, "\\.?\\s?\\-?\\:?[B-L]?[NO]?[Q-Z]?");
 
-            foreach (string item in output)
-            {
-                binFile.Write($"{item}");
-            }
-
+            binFile.Write(Output);
             MessageBox.Show($"Saved Changes to {FileName}!", "Saved");
 
             binFile.Close();
