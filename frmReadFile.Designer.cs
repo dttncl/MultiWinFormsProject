@@ -40,6 +40,7 @@
             this.rtfReadBox.ReadOnly = true;
             this.rtfReadBox.Size = new System.Drawing.Size(508, 326);
             this.rtfReadBox.TabIndex = 0;
+            this.rtfReadBox.TabStop = false;
             this.rtfReadBox.Text = "";
             // 
             // lblReadTitle
@@ -60,7 +61,7 @@
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "E&xit";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.button3_Click);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // frmReadFile
             // 

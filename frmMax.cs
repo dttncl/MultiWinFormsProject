@@ -42,7 +42,7 @@ namespace WinFormProject
             lblLMax09.Text = randomNumber;
 
             // generate first number and add to list
-            int firstRNum = random.Next(1, 49);
+            int firstRNum = random.Next(1, 50);
             generatedNum.Add(firstRNum);
 
             // generate a new number and add to list
@@ -54,7 +54,7 @@ namespace WinFormProject
                 // validation to ensure that every number is unique
                 do
                 {
-                    newRNum = random.Next(1, 49);
+                    newRNum = random.Next(1, 50);
                 } while (generatedNum.Contains(newRNum));
 
                 generatedNum.Add(newRNum);
@@ -107,7 +107,7 @@ namespace WinFormProject
             // READ TEXT FILE
             DataStream toRead = new DataStream();
             toRead.FileName = "LottoNbrs";
-            toRead.MsgBoxTitle = "LottoMax";
+            toRead.MsgBoxTitle = "Lotto";
 
             frmReadFile readDisplay = new frmReadFile();
             readDisplay.fileOutput = toRead.ReadFile();

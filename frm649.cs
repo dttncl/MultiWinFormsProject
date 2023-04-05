@@ -103,7 +103,7 @@ namespace WinFormProject
             // READ TEXT FILE
             DataStream toRead = new DataStream();
             toRead.FileName = "LottoNbrs";
-            toRead.MsgBoxTitle = "Lotto649";
+            toRead.MsgBoxTitle = "Lotto";
 
             frmReadFile readDisplay = new frmReadFile();
             readDisplay.fileOutput = toRead.ReadFile();

@@ -58,6 +58,7 @@
             this.txtCalc.Size = new System.Drawing.Size(484, 41);
             this.txtCalc.TabIndex = 0;
             this.txtCalc.TabStop = false;
+            this.txtCalc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btn1
             // 

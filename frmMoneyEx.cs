@@ -8,6 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// March 16, 2023
+// Money Conversion Factors (based on 1CAD):
+// Source: Royal Bank of Canada
+// 0.71230 USD
+// 0.66609 EUR
+// 0.58333 GBP
+// 38.22630 PHP
+
 namespace WinFormProject
 {
     public partial class frmMoneyEx : Form
