@@ -38,7 +38,7 @@
             this.rtfReadBox.Location = new System.Drawing.Point(22, 52);
             this.rtfReadBox.Name = "rtfReadBox";
             this.rtfReadBox.ReadOnly = true;
-            this.rtfReadBox.Size = new System.Drawing.Size(508, 326);
+            this.rtfReadBox.Size = new System.Drawing.Size(631, 224);
             this.rtfReadBox.TabIndex = 0;
             this.rtfReadBox.TabStop = false;
             this.rtfReadBox.Text = "";
@@ -55,7 +55,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(419, 395);
+            this.btnExit.Location = new System.Drawing.Point(542, 296);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(111, 38);
             this.btnExit.TabIndex = 4;
@@ -67,7 +67,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(553, 452);
+            this.ClientSize = new System.Drawing.Size(678, 349);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblReadTitle);
             this.Controls.Add(this.rtfReadBox);
