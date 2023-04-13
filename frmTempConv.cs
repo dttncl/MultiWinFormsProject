@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,75 +22,87 @@ namespace WinFormProject
         {
             ConvertTemp tempConvert = new ConvertTemp();
             decimal convTemp;
+            // accept only temperaturatures between -999.99 to 999.99
+            Regex validTemp = new Regex(@"^(\-?\d{1,3})(\.\d{1,2})?$");
 
             try
             {
-                // BASIC FUNCTION
                 string inputTemp = txtTempFrom.Text.Trim();
-                tempConvert.Temp = Convert.ToDecimal(inputTemp);
-
-                char unitFrom, unitTo;
-                if (optCtoF.Checked)
+                if (validTemp.IsMatch(inputTemp))
                 {
-                    // convert temp from C to F
-                    convTemp = tempConvert.ConvertToFarenheit();
-                    txtTempTo.Text = convTemp.ToString();
-                    unitFrom = 'C';
-                    unitTo = 'F';
+                    tempConvert.Temp = Convert.ToDecimal(inputTemp);
 
-                    // change text color
-                    if (tempConvert.Temp >= 40)
+                    char unitFrom, unitTo;
+                    if (optCtoF.Checked)
                     {
-                        rtfTempDesc.ForeColor = Color.Red;
+                        // convert temp from C to F
+                        convTemp = tempConvert.ConvertToFarenheit();
+                        txtTempTo.Text = convTemp.ToString();
+                        unitFrom = 'C';
+                        unitTo = 'F';
+
+                        // change text color
+                        if (tempConvert.Temp >= 40)
+                        {
+                            rtfTempDesc.ForeColor = Color.Red;
+                        }
+                        else if (tempConvert.Temp >= 21 && tempConvert.Temp < 40)
+                        {
+                            rtfTempDesc.ForeColor = Color.Green;
+                        }
+                        else if (tempConvert.Temp < 21)
+                        {
+                            rtfTempDesc.ForeColor = Color.Blue;
+                        }
                     }
-                    else if (tempConvert.Temp >= 21 && tempConvert.Temp < 40)
+                    else
                     {
-                        rtfTempDesc.ForeColor = Color.Green;
+                        // convert temp from F to C
+                        convTemp = tempConvert.ConvertToCelcius();
+                        txtTempTo.Text = convTemp.ToString();
+                        unitFrom = 'F';
+                        unitTo = 'C';
+
+                        // change text color
+                        if (tempConvert.Temp >= 104)
+                        {
+                            rtfTempDesc.ForeColor = Color.Red;
+                        }
+                        else if (tempConvert.Temp >= 70 && tempConvert.Temp < 104)
+                        {
+                            rtfTempDesc.ForeColor = Color.Green;
+                        }
+                        else if (tempConvert.Temp < 70)
+                        {
+                            rtfTempDesc.ForeColor = Color.Blue;
+                        }
                     }
-                    else if (tempConvert.Temp < 21)
-                    {
-                        rtfTempDesc.ForeColor = Color.Blue;
-                    }
+
+                    // display temp description
+                    string tempDescription = tempConvert.DescribeTemperature(unitFrom);
+                    rtfTempDesc.Text = tempDescription;
+
+                    // WRITE TO TEXT FILE
+                    DataStream toWrite = new DataStream();
+
+                    toWrite.FileName = "TempConv";
+                    toWrite.MsgBoxTitle = "Temperature Conversion";
+                    toWrite.Output = $"{inputTemp} {unitFrom} = {convTemp} {unitTo}";
+
+                    // remove line break before saving to text file
+                    tempDescription = tempDescription.Replace("\n", "").Replace("\r", " ");
+                    toWrite.Description = "  " + tempDescription;
+
+                    toWrite.WriteFile();
                 }
                 else
                 {
-                    // convert temp from F to C
-                    convTemp = tempConvert.ConvertToCelcius();
-                    txtTempTo.Text = convTemp.ToString();
-                    unitFrom = 'F';
-                    unitTo = 'C';
-
-                    // change text color
-                    if (tempConvert.Temp >= 104)
-                    {
-                        rtfTempDesc.ForeColor = Color.Red;
-                    }
-                    else if (tempConvert.Temp >= 70 && tempConvert.Temp < 104)
-                    {
-                        rtfTempDesc.ForeColor = Color.Green;
-                    }
-                    else if (tempConvert.Temp < 70)
-                    {
-                        rtfTempDesc.ForeColor = Color.Blue;
-                    }
+                    MessageBox.Show($"Error! Please input valid temperature format", "Invalid Input");
+                    rtfTempDesc.Text = "";
+                    txtTempFrom.Text = "";
+                    txtTempTo.Text = "";
+                    txtTempFrom.Focus();
                 }
-
-                // display temp description
-                string tempDescription = tempConvert.DescribeTemperature(unitFrom);
-                rtfTempDesc.Text = tempDescription;
-
-                // WRITE TO TEXT FILE
-                DataStream toWrite = new DataStream();
-
-                toWrite.FileName = "TempConv";
-                toWrite.MsgBoxTitle = "Temperature Conversion";
-                toWrite.Output = $"{inputTemp} {unitFrom} = {convTemp} {unitTo}";
-
-                // remove line break before saving to text file
-                tempDescription = tempDescription.Replace("\n","").Replace("\r"," ");
-                toWrite.Description = "  " + tempDescription;
-
-                toWrite.WriteFile();
 
             }
             catch (Exception err)

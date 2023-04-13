@@ -31,11 +31,14 @@ namespace WinFormProject
 
         private void btnIPVal_Click(object sender, EventArgs e)
         {
+
+            Regex validIP = new Regex(@"^(25[0-5]|2[0-4]\d|[0-1]?\d?\d)(\.(25[0-5]|2[0-4]\d|[0-1]?\d?\d)){3}$");
+
             // examples: 192.168.0.10 / 192.186.000
             string ipAddress = txtIPVal.Text.Trim();
-            if (Regex.IsMatch(ipAddress, @"^(25[0-5]|2[0-4]\d|[0-1]?\d?\d)(\.(25[0-5]|2[0-4]\d|[0-1]?\d?\d)){3}$"))
+            if (validIP.IsMatch(ipAddress))
             {
-                MessageBox.Show($"{ipAddress}\nThis IP is correct","Valid IP");
+                MessageBox.Show($"{ipAddress}\nThis IP is correct", "Valid IP");
 
                 DataStream toWrite = new DataStream();
                 toWrite.FileName = "BinaryIpv4";

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,17 +24,20 @@ namespace WinFormProject
         public frmMoneyEx()
         {
             InitializeComponent();
-            
+
 
         }
 
         DateTime openFormTime, closeFormTime;
         string currencyFrom, currencyTo;
 
+        // accept only amount from 0 to 99999.99
+        Regex validCurrency = new Regex(@"^([0-9]{1,5})(\.[0-9]{1,2})?$");
+
         private void btnMEx_Click(object sender, EventArgs e)
         {
             // BASIC FUNCTION
-            CurrencyEx moneyConvert = new CurrencyEx();       
+            CurrencyEx moneyConvert = new CurrencyEx();
 
             // FROM Group
             if (optUSD.Checked)
@@ -81,29 +85,40 @@ namespace WinFormProject
 
             try
             {
-                moneyConvert.Amt = Convert.ToDecimal(txtConvFrom.Text.Trim());
 
-                // convert amount to CAD
-                decimal convCAD = moneyConvert.ConvertToCAD(currencyFrom);
+                if (validCurrency.IsMatch(txtConvFrom.Text.Trim()))
+                {
+                    moneyConvert.Amt = Convert.ToDecimal(txtConvFrom.Text.Trim());
 
-                // convert CAD to any amount
-                decimal convCurrency = moneyConvert.ConvertToCurrency(convCAD, currencyTo);
-                txtConvTo.Text = convCurrency.ToString();
+                    // convert amount to CAD
+                    decimal convCAD = moneyConvert.ConvertToCAD(currencyFrom);
 
-                // WRITE TO TEXT FILE
-                DataStream toWrite = new DataStream();
+                    // convert CAD to any amount
+                    decimal convCurrency = moneyConvert.ConvertToCurrency(convCAD, currencyTo);
+                    txtConvTo.Text = convCurrency.ToString();
 
-                toWrite.FileName = "MoneyConv";
-                toWrite.MsgBoxTitle = "Money Conversion";
-                toWrite.Output = $"{moneyConvert.Amt} {currencyFrom} = {convCurrency} {currencyTo}";
-                toWrite.Description = "";
+                    // WRITE TO TEXT FILE
+                    DataStream toWrite = new DataStream();
 
-                toWrite.WriteFile();
+                    toWrite.FileName = "MoneyConv";
+                    toWrite.MsgBoxTitle = "Money Conversion";
+                    toWrite.Output = $"{moneyConvert.Amt} {currencyFrom} = {convCurrency} {currencyTo}";
+                    toWrite.Description = "";
+
+                    toWrite.WriteFile();
+                }
+                else
+                {
+                    MessageBox.Show($"Error! Please input valid amount format", "Invalid Input");
+                    txtConvFrom.Text = "";
+                    txtConvTo.Text = "";
+                    txtConvFrom.Focus();
+                }
 
             }
             catch (Exception err)
             {
-                MessageBox.Show($"Error! {err.Message}","Exception Error");
+                MessageBox.Show($"Error! {err.Message}", "Exception Error");
                 txtConvFrom.Text = "0";
                 txtConvFrom.Focus();
             }
